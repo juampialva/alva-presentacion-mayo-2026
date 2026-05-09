@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forecast vs Plan Gestión · Equipo Alva 2026</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+:root {
+  --navy:#1C3557; --teal:#00B4D8; --tealDark:#0090A8;
+  --alta:#1A9641; --altaLight:#D5F5E3; --altaDark:#0F5C28;
+  --media:#D4AC0D; --mediaLight:#FEF9E7; --mediaDark:#9A7D0A;
+  --baja:#E74C3C; --bajaLight:#FDEDEC; --bajaDark:#A93226;
+  --plan:#2980B9; --planLight:#D6EAF8;
+  --white:#FFFFFF; --offW:#F4F6F9; --card:#FFFFFF;
+  --slate:#5D6D7E; --light:#E2E8F0; --dark:#1A252F;
+  --shadow:0 4px 20px rgba(0,0,0,0.08);
+  --radius:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--offW);color:var(--dark);min-height:100vh;}
+
+/* ── HEADER ─────────────────────────────────────── */
+.header{background:var(--navy);padding:0 32px;display:flex;align-items:center;height:58px;border-bottom:3px solid var(--teal);position:sticky;top:0;z-index:100;}
+.header-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:14px;color:var(--teal);letter-spacing:.06em;margin-right:24px;}
+.header-title{font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#fff;}
+.header-sub{font-size:11px;color:rgba(160,196,216,.7);margin-left:auto;}
+.back-btn{color:var(--teal);font-size:12px;text-decoration:none;margin-right:16px;display:flex;align-items:center;gap:4px;white-space:nowrap;}
+.back-btn:hover{color:#fff;}
+
+/* ── HERO ────────────────────────────────────────── */
+.hero{background:linear-gradient(135deg,var(--navy) 0%,#1a3a5c 100%);padding:36px 32px 32px;border-left:5px solid var(--teal);position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;right:-80px;top:-80px;width:300px;height:300px;background:rgba(0,180,216,.06);border-radius:50%;}
+.hero-badge{display:inline-block;background:rgba(0,180,216,.2);border:1px solid var(--teal);color:var(--teal);font-size:10px;font-weight:700;letter-spacing:.12em;padding:3px 10px;border-radius:4px;margin-bottom:12px;text-transform:uppercase;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(22px,3vw,36px);font-weight:800;color:#fff;line-height:1.1;margin-bottom:6px;}
+.hero h1 em{color:var(--teal);font-style:normal;}
+.hero-sub{font-size:13px;color:rgba(160,196,216,.8);margin-bottom:24px;}
+.hero-kpis{display:flex;gap:20px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(0,212,200,.2);}
+.hk{display:flex;flex-direction:column;}
+.hk-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--teal);}
+.hk-lbl{font-size:10px;color:rgba(160,196,216,.6);text-transform:uppercase;letter-spacing:.07em;margin-top:2px;}
+.hk-sep{width:1px;background:rgba(0,212,200,.2);margin:0 4px;}
+
+/* ── TOGGLE ──────────────────────────────────────── */
+.toggle-wrap{display:flex;align-items:center;gap:10px;padding:18px 32px 0;}
+.toggle-lbl{font-size:11px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.07em;}
+.toggle-pills{display:flex;background:var(--light);border-radius:8px;padding:3px;gap:2px;}
+.pill{padding:6px 16px;border-radius:6px;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s;color:var(--slate);}
+.pill.active{background:#fff;color:var(--dark);box-shadow:0 1px 6px rgba(0,0,0,.12);}
+
+/* ── MAIN GRID ───────────────────────────────────── */
+.main{display:grid;grid-template-columns:1fr 420px;gap:20px;padding:20px 32px 32px;}
+@media(max-width:960px){.main{grid-template-columns:1fr;}}
+
+/* ── CARD ────────────────────────────────────────── */
+.card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.card-head{padding:18px 22px 12px;border-bottom:1px solid var(--light);display:flex;align-items:baseline;justify-content:space-between;gap:12px;}
+.card-head h2{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;color:var(--navy);}
+.card-head p{font-size:11px;color:var(--slate);}
+.chart-wrap{padding:16px 18px;position:relative;height:320px;}
+
+/* ── % TABLE ─────────────────────────────────────── */
+.pct-section{padding:0 18px 18px;}
+.pct-title{font-size:11px;font-weight:700;color:var(--navy);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;padding-top:16px;border-top:1px solid var(--light);}
+.pct-table{width:100%;border-collapse:collapse;font-size:12px;}
+.pct-table th{padding:6px 8px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#fff;background:var(--navy);text-align:center;}
+.pct-table th:first-child{text-align:left;border-radius:6px 0 0 0;}
+.pct-table th:last-child{border-radius:0 6px 0 0;}
+.pct-table td{padding:7px 8px;text-align:center;border-bottom:1px solid var(--light);}
+.pct-table td:first-child{text-align:left;}
+.pct-table tr:last-child td{border-bottom:none;}
+.prob-chip{display:inline-block;padding:2px 8px;border-radius:4px;font-weight:700;font-size:10px;}
+.chip-alta {background:var(--altaLight);color:var(--altaDark);}
+.chip-media{background:var(--mediaLight);color:var(--mediaDark);}
+.chip-baja {background:var(--bajaLight);color:var(--bajaDark);}
+.chip-plan {background:var(--planLight);color:var(--plan);}
+.pct-val{font-weight:700;font-size:12px;}
+.badge{display:inline-block;padding:3px 8px;border-radius:4px;font-weight:700;font-size:12px;}
+
+/* ── NOMINAL VALUES ──────────────────────────────── */
+.nom-row{display:flex;gap:6px;justify-content:center;padding:10px 18px 14px;border-top:1px solid var(--light);overflow-x:auto;}
+.nom-chip{text-align:center;padding:6px 10px;border-radius:8px;min-width:78px;flex:1;}
+.nom-chip-lbl{font-size:9px;color:var(--slate);text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px;}
+.nom-chip-val{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;}
+
+/* ── RIGHT PANEL ─────────────────────────────────── */
+.right-panel{display:flex;flex-direction:column;gap:16px;}
+
+/* Summary chips */
+.summary-chips{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.s-chip{background:var(--card);border-radius:10px;padding:14px 16px;box-shadow:var(--shadow);border-top:3px solid var(--teal);}
+.s-chip-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:var(--teal);}
+.s-chip-lbl{font-size:10px;color:var(--slate);margin-top:2px;}
+
+/* Prob cards */
+.prob-card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;transition:transform .15s;}
+.prob-card:hover{transform:translateY(-2px);}
+.prob-card-head{padding:14px 18px 10px;display:flex;align-items:center;justify-content:space-between;}
+.prob-card-badge{display:inline-flex;align-items:center;gap:8px;}
+.prob-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.prob-label{font-family:'Syne',sans-serif;font-weight:700;font-size:14px;}
+.prob-tpv{font-family:'Syne',sans-serif;font-weight:700;font-size:18px;}
+.prob-count{font-size:12px;color:var(--slate);margin-top:2px;}
+.prob-comment{font-size:11px;color:var(--slate);font-style:italic;padding:0 18px 10px;}
+.prob-bar-wrap{padding:0 18px 14px;}
+.prob-bar-track{height:8px;background:var(--light);border-radius:4px;overflow:hidden;}
+.prob-bar-fill{height:100%;border-radius:4px;transition:width .6s ease;}
+.prob-bar-meta{display:flex;justify-content:space-between;margin-top:5px;font-size:10px;color:var(--slate);}
+
+/* ── TOOLTIP CUSTOM ──────────────────────────────── */
+.custom-tooltip{position:absolute;background:var(--dark);color:#fff;padding:10px 14px;border-radius:8px;font-size:12px;pointer-events:none;z-index:200;min-width:160px;box-shadow:0 4px 16px rgba(0,0,0,.25);}
+
+/* ── NOTE ────────────────────────────────────────── */
+.note{margin:0 32px 24px;padding:10px 16px;background:rgba(28,53,87,.06);border-left:3px solid var(--teal);border-radius:0 6px 6px 0;font-size:11px;color:var(--slate);}
+
+footer{text-align:center;padding:16px;font-size:10px;color:var(--slate);border-top:1px solid var(--light);}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <a class="back-btn" href="index.html">← Volver</a>
+  <div class="header-logo">MP · EQUIPO ALVA</div>
+  <div class="header-title">Forecast vs Plan Gestión</div>
+  <div class="header-sub">ESCENARIO 11.05 · Mayo – Agosto 2026</div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">Mercado Pago Argentina · 2026</div>
+  <h1>Forecast <em>Plan Gestión</em></h1>
+  <p class="hero-sub">Proyección Mayo → Agosto 2026 · 3 escenarios de probabilidad vs Plan Gestión del equipo</p>
+  <div class="hero-kpis">
+    <div class="hk"><div class="hk-val">$5.8 Mn</div><div class="hk-lbl">Plan Gestión mensual</div></div>
+    <div class="hk-sep"></div>
+    <div class="hk"><div class="hk-val">74</div><div class="hk-lbl">Marcas en pipeline</div></div>
+    <div class="hk-sep"></div>
+    <div class="hk"><div class="hk-val" id="hero-max-pct">—</div><div class="hk-lbl">Pico % vs plan (BAJA·Jul)</div></div>
+    <div class="hk-sep"></div>
+    <div class="hk"><div class="hk-val">$37.9 Mn</div><div class="hk-lbl">TPV pipeline total May-Ago</div></div>
+  </div>
+</div>
+
+<!-- TOGGLE -->
+<div class="toggle-wrap">
+  <span class="toggle-lbl">Vista:</span>
+  <div class="toggle-pills">
+    <div class="pill active" onclick="setView('nominal',this)">TPV Nominal</div>
+    <div class="pill" onclick="setView('pct',this)">% vs Plan</div>
+  </div>
+</div>
+
+<!-- MAIN GRID -->
+<div class="main">
+
+  <!-- LEFT: Chart + table -->
+  <div>
+    <div class="card">
+      <div class="card-head">
+        <h2 id="chart-title">TPV Forecast por Escenario (Mn USD)</h2>
+        <p id="chart-sub">Acumulado mensual vs Plan Gestión</p>
+      </div>
+      <div class="chart-wrap"><canvas id="main-chart"></canvas></div>
+
+      <!-- Nominal values row -->
+      <div class="nom-row" id="nom-row">
+        <!-- filled by JS -->
+      </div>
+
+      <!-- % vs Plan table -->
+      <div class="pct-section">
+        <div class="pct-title">% vs Plan Gestión por mes</div>
+        <table class="pct-table">
+          <thead>
+            <tr>
+              <th>Escenario</th>
+              <th>Mayo</th><th>Junio</th><th>Julio</th><th>Agosto</th>
+              <th>Promedio</th>
+            </tr>
+          </thead>
+          <tbody id="pct-tbody"><!-- filled by JS --></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: Pipeline counts -->
+  <div class="right-panel">
+
+    <div class="summary-chips">
+      <div class="s-chip">
+        <div class="s-chip-val">74</div>
+        <div class="s-chip-lbl">Marcas totales en pipeline</div>
+      </div>
+      <div class="s-chip">
+        <div class="s-chip-val">$37.9 Mn</div>
+        <div class="s-chip-lbl">TPV May-Ago potencial</div>
+      </div>
+    </div>
+
+    <div id="prob-cards"><!-- filled by JS --></div>
+
+  </div>
+</div>
+
+<p class="note">* Los valores de forecast incluyen el TPV Real YTD Ene-Abr ($24.85 Mn) + proyección de marcas nuevas a activar en cada mes según nivel de probabilidad. El Plan Gestión es $5.8 Mn/mes (May-Jul) y $6.0 Mn en Agosto.</p>
+
+<footer>Mercado Pago Argentina · Equipo Big Sellers · Juan Pablo Alva · Mayo 2026</footer>
+
+<script>
+const MONTHS = ['Mayo','Junio','Julio','Agosto'];
+const PLAN_G = { Mayo:5800000, Junio:5800000, Julio:5800000, Agosto:6000000 };
+
+// Forecast Gestión (TPV new activado en cada mes, nominal)
+const FCST = {
+  ALTA:  { Mayo:5790581, Junio:8203786, Julio:8625000, Agosto:3100000 },
+  MEDIA: { Mayo:5840581, Junio:10658786, Julio:17085000, Agosto:14310000 },
+  BAJA:  { Mayo:5840581, Junio:10658786, Julio:21965000, Agosto:19485000 },
+};
+
+// % vs Plan Gestión
+const VS_G = {
+  ALTA:  [100, 141, 149, 52],
+  MEDIA: [101, 184, 295, 239],
+  BAJA:  [101, 184, 379, 325],
+};
+
+// Pipeline brands
+const BRANDS = [
+  { prob:'ALTA',  color:'#1A9641', colorLight:'#D5F5E3', colorDark:'#0F5C28',
+    count:26, tpv:6525000,  tpvLabel:'$6.5 Mn',  pct:17,
+    comment:'Encendidas o en proceso de encendido en Mayo-Junio' },
+  { prob:'MEDIA', color:'#D4AC0D', colorLight:'#FEF9E7', colorDark:'#9A7D0A',
+    count:34, tpv:17865000, tpvLabel:'$17.9 Mn', pct:47,
+    comment:'En negociación activa, propuesta enviada o en evaluación' },
+  { prob:'BAJA',  color:'#E74C3C', colorLight:'#FDEDEC', colorDark:'#A93226',
+    count:14, tpv:13575000, tpvLabel:'$13.6 Mn', pct:36,
+    comment:'Identificadas en etapa temprana de prospección' },
+];
+
+const fmtM = n => n>=1e6 ? `$${(n/1e6).toFixed(1)} Mn` : `$${(n/1e3).toFixed(0)} K`;
+const pctColor = v => v>=100 ? '#1E8449' : v>=80 ? '#9A7D0A' : '#C0392B';
+const pctBg    = v => v>=100 ? '#D5F5E3' : v>=80 ? '#FEF9E7' : '#FDEDEC';
+
+let currentView = 'nominal';
+let mainChart;
+
+// ── Hero max pct ──────────────────────────────────
+document.getElementById('hero-max-pct').textContent = '379%';
+
+// ── Prob Cards ────────────────────────────────────
+function buildProbCards() {
+  const container = document.getElementById('prob-cards');
+  const totalTPV = BRANDS.reduce((a,b)=>a+b.tpv,0);
+  container.innerHTML = BRANDS.map(b => `
+    <div class="prob-card" style="border-top:4px solid ${b.color}">
+      <div class="prob-card-head">
+        <div class="prob-card-badge">
+          <div class="prob-dot" style="background:${b.color}"></div>
+          <div>
+            <div class="prob-label" style="color:${b.color}">${b.prob}</div>
+            <div class="prob-count">${b.count} cuentas en pipeline</div>
+          </div>
+        </div>
+        <div class="prob-tpv" style="color:${b.color}">${b.tpvLabel}</div>
+      </div>
+      <div class="prob-comment">${b.comment}</div>
+      <div class="prob-bar-wrap">
+        <div class="prob-bar-track">
+          <div class="prob-bar-fill" style="width:${b.pct}%;background:${b.color}"></div>
+        </div>
+        <div class="prob-bar-meta">
+          <span>${b.pct}% del pipeline total</span>
+          <span style="font-weight:600;color:${b.color}">${b.tpvLabel} TPV May-Ago</span>
+        </div>
+      </div>
+    </div>`).join('');
+}
+
+// ── % Table ───────────────────────────────────────
+function buildPctTable() {
+  const tbody = document.getElementById('pct-tbody');
+  const rows = [
+    { label:'Solo ALTA',  cls:'chip-alta',  vs:VS_G.ALTA,  nominal:FCST.ALTA  },
+    { label:'+MEDIA',     cls:'chip-media', vs:VS_G.MEDIA, nominal:FCST.MEDIA },
+    { label:'+BAJA',      cls:'chip-baja',  vs:VS_G.BAJA,  nominal:FCST.BAJA  },
+    { label:'Plan G',     cls:'chip-plan',  vs:[100,100,100,100], nominal:PLAN_G, isPlan:true },
+  ];
+  tbody.innerHTML = rows.map(r => {
+    const avgVs = r.isPlan ? 100 : Math.round(r.vs.reduce((a,v)=>a+v,0)/4);
+    const cells = MONTHS.map((m,i) => {
+      const v = r.vs[i];
+      return r.isPlan
+        ? `<td style="font-size:11px;color:#5D6D7E">${fmtM(r.nominal[m])}</td>`
+        : `<td><span class="badge" style="background:${pctBg(v)};color:${pctColor(v)}">${v}%</span></td>`;
+    }).join('');
+    const avgBg = r.isPlan ? '#D6EAF8' : pctBg(avgVs);
+    const avgFc = r.isPlan ? '#2980B9' : pctColor(avgVs);
+    return `<tr>
+      <td><span class="prob-chip ${r.cls}">${r.label}</span></td>
+      ${cells}
+      <td><span class="badge" style="background:${avgBg};color:${avgFc};font-size:11px">${r.isPlan?'—':avgVs+'%'}</span></td>
+    </tr>`;
+  }).join('');
+}
+
+// ── Nominal row ───────────────────────────────────
+function buildNomRow() {
+  const row = document.getElementById('nom-row');
+  const scenarios = [
+    { label:'Solo ALTA', color:'#1A9641', data:FCST.ALTA  },
+    { label:'+MEDIA',    color:'#D4AC0D', data:FCST.MEDIA },
+    { label:'+BAJA',     color:'#E74C3C', data:FCST.BAJA  },
+    { label:'Plan G',    color:'#2980B9', data:PLAN_G     },
+  ];
+  // Show for active month highlight — just show current view summary chips
+  row.innerHTML = MONTHS.map((m,mi) => {
+    const alta  = FCST.ALTA[m];
+    const vs    = VS_G.ALTA[mi];
+    const bg    = pctBg(vs); const fc = pctColor(vs);
+    return `<div class="nom-chip" style="background:${bg};border:1px solid ${fc}22">
+      <div class="nom-chip-lbl">${m}</div>
+      <div class="nom-chip-val" style="color:${fc}">${VS_G.ALTA[mi]}%</div>
+      <div style="font-size:9px;color:#5D6D7E;margin-top:1px">${fmtM(alta)}</div>
+    </div>`;
+  }).join('');
+}
+
+// ── Main Chart ────────────────────────────────────
+function buildChart() {
+  const ctx = document.getElementById('main-chart').getContext('2d');
+  if (mainChart) mainChart.destroy();
+
+  const isNominal = currentView === 'nominal';
+
+  const vals = sc => MONTHS.map(m => isNominal
+    ? parseFloat((sc[m]/1e6).toFixed(2))
+    : parseFloat((sc[m]/PLAN_G[m]*100).toFixed(1)));
+
+  const planVals = MONTHS.map(m => isNominal
+    ? parseFloat((PLAN_G[m]/1e6).toFixed(2))
+    : 100);
+
+  const datasets = [
+    { label:'Solo ALTA', data:vals(FCST.ALTA),  backgroundColor:'#1A964166', borderColor:'#1A9641', borderWidth:1.5, borderRadius:4, type:'bar' },
+    { label:'+MEDIA',    data:vals(FCST.MEDIA), backgroundColor:'#D4AC0D66', borderColor:'#D4AC0D', borderWidth:1.5, borderRadius:4, type:'bar' },
+    { label:'+BAJA',     data:vals(FCST.BAJA),  backgroundColor:'#E74C3C66', borderColor:'#E74C3C', borderWidth:1.5, borderRadius:4, type:'bar' },
+    { label:'Plan Gestión', data:planVals,        borderColor:'#2980B9',        borderWidth:2.5,
+      pointBackgroundColor:'#2980B9', pointRadius:5, pointHoverRadius:7,
+      fill:false, tension:0.3, type:'line' },
+  ];
+
+  const yLabel = isNominal ? 'Mn USD' : '% vs Plan';
+  const yFmt   = isNominal ? v=>`${v} Mn` : v=>`${v}%`;
+  const refLine = isNominal ? null : {
+    id:'ref100',
+    type:'line',
+    yMin:100, yMax:100,
+    borderColor:'rgba(41,128,185,.35)',
+    borderWidth:1.5,
+    borderDash:[6,4],
+    label:{ display:true, content:'100% Plan', position:'end', color:'#2980B9', font:{size:10} }
+  };
+
+  mainChart = new Chart(ctx, {
+    data:{ labels:MONTHS, datasets },
+    options:{
+      responsive:true, maintainAspectRatio:false,
+      interaction:{ mode:'index', intersect:false },
+      plugins:{
+        legend:{ position:'bottom', labels:{ boxWidth:12, font:{size:11}, padding:16 } },
+        tooltip:{
+          callbacks:{
+            label: ctx => {
+              const v = ctx.parsed.y;
+              return ` ${ctx.dataset.label}: ${isNominal ? `$${v} Mn` : `${v}%`}`;
+            }
+          }
+        }
+      },
+      scales:{
+        x:{ grid:{display:false}, ticks:{font:{size:11}} },
+        y:{
+          grid:{ color:'#E8ECF0' },
+          ticks:{ font:{size:11}, callback: yFmt },
+          title:{ display:true, text:yLabel, font:{size:10}, color:'#5D6D7E' }
+        }
+      }
+    }
+  });
+}
+
+// ── setView ───────────────────────────────────────
+function setView(view, el) {
+  currentView = view;
+  document.querySelectorAll('.pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('chart-title').textContent =
+    view==='nominal' ? 'TPV Forecast por Escenario (Mn USD)' : '% vs Plan Gestión por mes';
+  document.getElementById('chart-sub').textContent =
+    view==='nominal' ? 'TPV nominal mensual vs Plan Gestión' : 'Cumplimiento relativo por escenario';
+  buildChart();
+}
+
+// ── Init ──────────────────────────────────────────
+buildProbCards();
+buildPctTable();
+buildNomRow();
+buildChart();
+</script>
+</body>
+</html>
