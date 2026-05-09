@@ -158,50 +158,55 @@ const FORECAST = {
 // Plan Anual updated: now includes individual hunter plans
 
 const BRANDS = [
-  {prob:"ALTA",  marca:"Megatone",           hunter:"Agustín Mac",        mayo:500000,  jun:1500000, jul:2000000, ago:2000000, total:14000000, zona:"Santa Fe",   vertical:"Home",          comentario:"Sale después del Hot Sale"},
-  {prob:"ALTA",  marca:"Tyna",               hunter:"Agustín Mac",        mayo:400000,  jun:500000,  jul:500000,  ago:500000,  total:3900000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:"Encendida"},
-  {prob:"ALTA",  marca:"Super El Lapacho",   hunter:"Agustín Mac",        mayo:350000,  jun:400000,  jul:400000,  ago:400000,  total:3150000,  zona:"Corrientes", vertical:"Alimentos",     comentario:"Supermercado, ganada"},
-  {prob:"ALTA",  marca:"Bremen Motors",      hunter:"Delfina Sipes",      mayo:100000,  jun:200000,  jul:300000,  ago:500000,  total:3100000,  zona:"Otra",       vertical:"Autos",         comentario:"Por encender"},
-  {prob:"ALTA",  marca:"Pinturas misioneras",hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:600000,  ago:600000,  total:3750000,  zona:"Misiones",   vertical:"Construcción",  comentario:"Fábrica de pinturas"},
-  {prob:"ALTA",  marca:"Red Giro",           hunter:"Julieta Fassi",      mayo:100000,  jun:200000,  jul:300000,  ago:300000,  total:2100000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:""},
-  {prob:"ALTA",  marca:"Casino Neoparana",   hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:350000,  ago:350000,  total:2300000,  zona:"Entre Ríos", vertical:"Gambling",      comentario:"Sale en Junio"},
-  {prob:"ALTA",  marca:"Bistecca",           hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:"Carnicería Rosario"},
-  {prob:"ALTA",  marca:"Casino Victoria",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Entre Ríos", vertical:"Gambling",      comentario:"Postergado a Jun/Jul"},
-  {prob:"ALTA",  marca:"Rafeeli Shop",       hunter:"Ornella Di Natale",  mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Salud",         comentario:""},
-  {prob:"ALTA",  marca:"Durabox",            hunter:"Camila Valansi",     mayo:50000,   jun:250000,  jul:250000,  ago:250000,  total:1800000,  zona:"Santa Fe",   vertical:"Autos",         comentario:"Propuesta enviada"},
-  {prob:"ALTA",  marca:"Cafe Registrado",    hunter:"Camila Valansi",     mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Otra",       vertical:"Alimentos",     comentario:"Encendido"},
-  {prob:"ALTA",  marca:"Panaderia Paracao",  hunter:"Delfina Sipes",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Entre Ríos", vertical:"Alimentos",     comentario:"Propuesta aceptada"},
-  {prob:"ALTA",  marca:"Riccollini",         hunter:"Julieta Fassi",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Alimentos",     comentario:""},
-  {prob:"ALTA",  marca:"Sofitel Cardales",   hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Bs As",      vertical:"Turismo",       comentario:""},
-  {prob:"ALTA",  marca:"Aguas de corrientes",hunter:"Ornella Di Natale",  mayo:0,       jun:100000,  jul:300000,  ago:300000,  total:1900000,  zona:"Corrientes", vertical:"Utilities",     comentario:""},
-  {prob:"ALTA",  marca:"Hoteles Solans",     hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:200000,  ago:200000,  total:1350000,  zona:"Santa Fe",   vertical:"Turismo",       comentario:""},
-  {prob:"ALTA",  marca:"Supertim",           hunter:"Julieta Fassi",      mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Entre Ríos", vertical:"Alimentos",     comentario:""},
-  {prob:"ALTA",  marca:"Gio Farma",          hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:200000,  ago:200000,  total:1475000,  zona:"Misiones",   vertical:"Salud",         comentario:"Encendida"},
-  {prob:"ALTA",  marca:"Bartolito Mayorista",hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:150000,  ago:150000,  total:1175000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:"Propuesta enviada"},
-  {prob:"ALTA",  marca:"Compañia Nativa",    hunter:"Delfina Sipes",      mayo:0,       jun:100000,  jul:125000,  ago:125000,  total:850000,   zona:"Bs As",      vertical:"Home",          comentario:"Campaña post hot sale"},
-  {prob:"ALTA",  marca:"Perfumeria Oliveras",hunter:"Delfina Sipes",      mayo:0,       jun:60000,   jul:100000,  ago:125000,  total:785000,   zona:"Santa Fe",   vertical:"Salud",         comentario:"Ver tema tag"},
-  {prob:"ALTA",  marca:"Volpato Centro",     hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Electro",       comentario:""},
-  {prob:"ALTA",  marca:"NESKA indumentaria", hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Apparel",       comentario:""},
-  {prob:"ALTA",  marca:"Caja psicologos pba",hunter:"Delfina Sipes",      mayo:50000,   jun:100000,  jul:150000,  ago:150000,  total:1050000,  zona:"Bs As",      vertical:"Salud",         comentario:"Points enviados"},
-  {prob:"ALTA",  marca:"La Mara entret.",    hunter:"Delfina Sipes",      mayo:125000,  jun:125000,  jul:200000,  ago:200000,  total:1150000,  zona:"Otra",       vertical:"Entretenimiento",comentario:"Encendida"},
-  {prob:"MEDIA", marca:"SAMSA",              hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:800000,  ago:800000,  total:5000000,  zona:"Misiones",   vertical:"Utilities",     comentario:"Integración QR Junio"},
-  {prob:"MEDIA", marca:"Showsport",          hunter:"Ornella Di Natale",  mayo:0,       jun:0,       jul:300000,  ago:1000000, total:7300000,  zona:"Corrientes", vertical:"Apparel",       comentario:""},
-  {prob:"MEDIA", marca:"El chañar",          hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:500000,  ago:500000,  total:3200000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:"Carnicerías Rosario"},
-  {prob:"MEDIA", marca:"Grupo lorenzo",      hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Electro",       comentario:"Contrato Payway 2028"},
-  {prob:"MEDIA", marca:"Farmacia Embon",     hunter:"Agustín Mac",        mayo:0,       jun:300000,  jul:400000,  ago:400000,  total:2700000,  zona:"Santa Fe",   vertical:"Salud",         comentario:"Varios CUITs"},
-  {prob:"MEDIA", marca:"Paladar",            hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Santa Fe",   vertical:"Alimentos",     comentario:"Avanzando propuesta"},
-  {prob:"MEDIA", marca:"Sensei",             hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Entre Ríos", vertical:"Home",          comentario:"Interesado"},
-  {prob:"MEDIA", marca:"Farmacia Miguel L.", hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:400000,  ago:400000,  total:2600000,  zona:"Misiones",   vertical:"Salud",         comentario:"Muy cerca de cerrar"},
-  {prob:"MEDIA", marca:"Grupo Hermanos",     hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:500000,  total:2500000,  zona:"Misiones",   vertical:"Alimentos",     comentario:"Gastronomía Iguazú"},
-  {prob:"BAJA",  marca:"BYD",               hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:900000,  ago:900000,  total:5400000,  zona:"Otra",       vertical:"Autos",         comentario:"40 locales"},
-  {prob:"BAJA",  marca:"Pandora",           hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:0,       total:6000000,  zona:"Otra",       vertical:"Otros",         comentario:"Activación Oct"},
-  {prob:"BAJA",  marca:"Red Sport",         hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Santa Fe",   vertical:"Apparel",       comentario:"12 locales"},
-  {prob:"BAJA",  marca:"Bruno Hermanos",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Alimentos",     comentario:""},
-  {prob:"BAJA",  marca:"Farmacia Lacarra",  hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:300000,  ago:300000,  total:2500000,  zona:"Otra",       vertical:"Salud",         comentario:"11 locales"},
-  {prob:"BAJA",  marca:"Heladerias Bahillo",hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1225000,  zona:"Entre Ríos", vertical:"Alimentos",     comentario:""},
-  {prob:"BAJA",  marca:"Bourlot",           hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1000000,  zona:"Santa Fe",   vertical:"Home",          comentario:""},
+  {prob:"ALTA",  marca:"Megatone",           hunter:"Agustín Mac",        mayo:500000,  jun:1500000, jul:2000000, ago:2000000, total:14000000, zona:"Santa Fe",   vertical:"Home",          producto:"QR",       comentario:"Sale después del Hot Sale"},
+  {prob:"ALTA",  marca:"Tyna",               hunter:"Agustín Mac",        mayo:400000,  jun:500000,  jul:500000,  ago:500000,  total:3900000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point",    comentario:"Encendida"},
+  {prob:"ALTA",  marca:"Super El Lapacho",   hunter:"Agustín Mac",        mayo:350000,  jun:400000,  jul:400000,  ago:400000,  total:3150000,  zona:"Corrientes", vertical:"Alimentos",     producto:"QR+Point", comentario:"Supermercado, ganada"},
+  {prob:"ALTA",  marca:"Bremen Motors",      hunter:"Delfina Sipes",      mayo:100000,  jun:200000,  jul:300000,  ago:500000,  total:3100000,  zona:"Otra",       vertical:"Autos",         producto:"QR+Point", comentario:"Por encender"},
+  {prob:"ALTA",  marca:"Pinturas misioneras",hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:600000,  ago:600000,  total:3750000,  zona:"Misiones",   vertical:"Construcción",  producto:"Point+QR", comentario:"Fábrica de pinturas"},
+  {prob:"ALTA",  marca:"Red Giro",           hunter:"Julieta Fassi",      mayo:100000,  jun:200000,  jul:300000,  ago:300000,  total:2100000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"Casino Neoparana",   hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:350000,  ago:350000,  total:2300000,  zona:"Entre Ríos", vertical:"Gambling",      producto:"QR+Point", comentario:"Sale en Junio"},
+  {prob:"ALTA",  marca:"Bistecca",           hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Carnicería Rosario"},
+  {prob:"ALTA",  marca:"Casino Victoria",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Entre Ríos", vertical:"Gambling",      producto:"Point+QR", comentario:"Postergado a Jun/Jul"},
+  {prob:"ALTA",  marca:"Rafeeli Shop",       hunter:"Ornella Di Natale",  mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Salud",         producto:"QR+Point", comentario:""},
+  {prob:"ALTA",  marca:"Durabox",            hunter:"Camila Valansi",     mayo:50000,   jun:250000,  jul:250000,  ago:250000,  total:1800000,  zona:"Santa Fe",   vertical:"Autos",         producto:"QR+Point", comentario:"Propuesta enviada"},
+  {prob:"ALTA",  marca:"Cafe Registrado",    hunter:"Camila Valansi",     mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Otra",       vertical:"Alimentos",     producto:"QR+Point", comentario:"Encendido"},
+  {prob:"ALTA",  marca:"Panaderia Paracao",  hunter:"Delfina Sipes",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta aceptada"},
+  {prob:"ALTA",  marca:"Riccollini",         hunter:"Julieta Fassi",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Alimentos",     producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"Sofitel Cardales",   hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Bs As",      vertical:"Turismo",       producto:"QR+Point", comentario:""},
+  {prob:"ALTA",  marca:"Aguas de corrientes (acsa)",hunter:"Ornella Di Natale",mayo:0,  jun:100000,  jul:300000,  ago:300000,  total:1900000,  zona:"Corrientes", vertical:"Utilities",     producto:"QR",       comentario:""},
+  {prob:"ALTA",  marca:"Hoteles Solans",     hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:200000,  ago:200000,  total:1350000,  zona:"Santa Fe",   vertical:"Turismo",       producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"Supertim",           hunter:"Julieta Fassi",      mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"Gio Farma",          hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:200000,  ago:200000,  total:1475000,  zona:"Misiones",   vertical:"Salud",         producto:"Point+QR", comentario:"Encendida"},
+  {prob:"ALTA",  marca:"Bartolito Mayorista",hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:150000,  ago:150000,  total:1175000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta enviada"},
+  {prob:"ALTA",  marca:"Compañia Nativa",    hunter:"Delfina Sipes",      mayo:0,       jun:100000,  jul:125000,  ago:125000,  total:850000,   zona:"Bs As",      vertical:"Home",          producto:"QR+Point", comentario:"Campaña post hot sale"},
+  {prob:"ALTA",  marca:"Perfumeria Oliveras",hunter:"Delfina Sipes",      mayo:0,       jun:60000,   jul:100000,  ago:125000,  total:785000,   zona:"Santa Fe",   vertical:"Salud",         producto:"QR+Point", comentario:"Ver tema tag"},
+  {prob:"ALTA",  marca:"Volpato Centro",     hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Electro",       producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"NESKA indumentaria", hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Apparel",       producto:"Point+QR", comentario:""},
+  {prob:"ALTA",  marca:"Caja de psicologos pba",hunter:"Delfina Sipes",   mayo:50000,   jun:100000,  jul:150000,  ago:150000,  total:1050000,  zona:"Bs As",      vertical:"Salud",         producto:"Point+QR", comentario:"Points enviados"},
+  {prob:"ALTA",  marca:"La Mara entret.",    hunter:"Delfina Sipes",      mayo:125000,  jun:125000,  jul:200000,  ago:200000,  total:1150000,  zona:"Otra",       vertical:"Entretenimiento",producto:"Point+QR", comentario:"Encendida"},
+  {prob:"MEDIA", marca:"SAMSA",              hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:800000,  ago:800000,  total:5000000,  zona:"Misiones",   vertical:"Utilities",     producto:"QR+Point", comentario:"Integración QR Junio"},
+  {prob:"MEDIA", marca:"Showsport",          hunter:"Ornella Di Natale",  mayo:0,       jun:0,       jul:300000,  ago:1000000, total:7300000,  zona:"Corrientes", vertical:"Apparel",       producto:"QR+Point", comentario:""},
+  {prob:"MEDIA", marca:"El chañar",          hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:500000,  ago:500000,  total:3200000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Carnicerías Rosario"},
+  {prob:"MEDIA", marca:"Grupo lorenzo",      hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Electro",       producto:"QR+Point", comentario:"Contrato Payway 2028"},
+  {prob:"MEDIA", marca:"Farmacia Embon",     hunter:"Agustín Mac",        mayo:0,       jun:300000,  jul:400000,  ago:400000,  total:2700000,  zona:"Santa Fe",   vertical:"Salud",         producto:"QR+Point", comentario:"Varios CUITs"},
+  {prob:"MEDIA", marca:"Paladar",            hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Avanzando propuesta"},
+  {prob:"MEDIA", marca:"Sensei",             hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Entre Ríos", vertical:"Home",          producto:"QR+Point", comentario:"Interesado"},
+  {prob:"MEDIA", marca:"Farmacia Miguel Lanus",hunter:"Agustín Mac",      mayo:0,       jun:200000,  jul:400000,  ago:400000,  total:2600000,  zona:"Misiones",   vertical:"Salud",         producto:"QR+Point", comentario:"Muy cerca de cerrar"},
+  {prob:"MEDIA", marca:"Grupo Hermanos",     hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:500000,  total:2500000,  zona:"Misiones",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Gastronomía Iguazú"},
+  {prob:"MEDIA", marca:"Cerámicos Pellegrini",hunter:"Camila Valansi",    mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Entre Ríos", vertical:"Home",          producto:"Point+QR", comentario:"Están interesados"},
+  {prob:"MEDIA", marca:"Corpico",            hunter:"Ornella Di Natale",  mayo:0,       jun:200000,  jul:300000,  ago:300000,  total:2000000,  zona:"Otra",       vertical:"Utilities",     producto:"Point",    comentario:""},
+  {prob:"MEDIA", marca:"Orso Bianco",        hunter:"Ornella Di Natale",  mayo:0,       jun:100000,  jul:300000,  ago:300000,  total:1900000,  zona:"Corrientes", vertical:"Apparel",       producto:"QR",       comentario:""},
+  {prob:"MEDIA", marca:"Farmacia Villegas",  hunter:"Camila Valansi",     mayo:0,       jun:100000,  jul:230000,  ago:230000,  total:1480000,  zona:"Entre Ríos", vertical:"Salud",         producto:"QR+Point", comentario:"Negociando"},
+  {prob:"MEDIA", marca:"Avicola Victoria",   hunter:"Juan I. Sottile",    mayo:0,       jun:200000,  jul:250000,  ago:300000,  total:1950000,  zona:"Otra",       vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta enviada"},
+  {prob:"MEDIA", marca:"LasChulas",          hunter:"Juan I. Sottile",    mayo:0,       jun:125000,  jul:170000,  ago:185000,  total:1280000,  zona:"Entre Ríos", vertical:"Apparel",       producto:"Point+QR", comentario:"Interesado"},
+  {prob:"BAJA",  marca:"BYD",               hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:900000,  ago:900000,  total:5400000,  zona:"Otra",       vertical:"Autos",         producto:"Point+QR", comentario:"40 locales"},
+  {prob:"BAJA",  marca:"Pandora",           hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:0,       total:6000000,  zona:"Otra",       vertical:"Otros",         producto:"QR+Point", comentario:"Activación Oct"},
+  {prob:"BAJA",  marca:"Red Sport",         hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Santa Fe",   vertical:"Apparel",       producto:"Point+QR", comentario:"12 locales"},
+  {prob:"BAJA",  marca:"Bruno Hermanos",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Alimentos",     producto:"Point+QR", comentario:""},
+  {prob:"BAJA",  marca:"Farmacia Lacarra",  hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:300000,  ago:300000,  total:2500000,  zona:"Otra",       vertical:"Salud",         producto:"QR+Point", comentario:"11 locales"},
+  {prob:"BAJA",  marca:"Heladerias Bahillo",hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1225000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point",    comentario:""},
+  {prob:"BAJA",  marca:"Bourlot",           hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1000000,  zona:"Santa Fe",   vertical:"Home",          producto:"QR+Point", comentario:""},
 ];
-
 const HUNTERS = {
   "Agustín Mac":       {color:"#1A9641", mayo:2525000, jun:6950000,  jul:12250000, ago:12950000},
   "Ornella Di Natale": {color:"#2471A3", mayo:300000,  jun:1850000,  jul:3700000,  ago:4450000},
@@ -327,6 +332,7 @@ function buildForecast() {
     <table class="brands-table">
       <thead><tr>
         <th>Prob.</th><th>Marca</th><th>Hunter</th><th>Zona</th><th>Vertical</th>
+        <th style="text-align:center">Producto</th>
         <th style="text-align:center">Mayo</th><th style="text-align:center">Junio</th>
         <th style="text-align:center">Julio</th><th style="text-align:center">Agosto</th>
         <th style="text-align:center">Total Anual</th>
@@ -338,6 +344,7 @@ function buildForecast() {
           <td style="color:var(--slate)">${b.hunter}</td>
           <td style="color:var(--slate);font-size:10px">${b.zona}</td>
           <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
+          <td style="text-align:center;font-size:10px">${b.producto||'—'}</td>
           ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?'var(--dark)':'var(--light)'}${v>=1e6?';font-weight:700':''}">${v>0?fmt(v):'—'}</td>`).join('')}
           <td style="text-align:center;font-weight:700;color:${b.prob==='ALTA'?'var(--alta)':b.prob==='MEDIA'?'var(--media)':'var(--baja)'}">${fmt(b.total)}</td>
         </tr>`).join('')}
@@ -458,6 +465,7 @@ function buildPipeline() {
         <thead><tr style="background:${gbg[prob]}">
           <th style="text-align:left">Marca</th><th style="text-align:left">Hunter</th>
           <th style="text-align:left">Zona</th><th style="text-align:left">Vertical</th>
+          <th style="text-align:center">Producto</th>
           <th style="text-align:center">Mayo</th><th style="text-align:center">Jun</th>
           <th style="text-align:center">Jul</th><th style="text-align:center">Ago</th>
           <th style="text-align:center">Total Anual</th>
@@ -469,6 +477,7 @@ function buildPipeline() {
             <td style="color:var(--slate)">${b.hunter}</td>
             <td style="font-size:10px;color:var(--slate)">${b.zona}</td>
             <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
+            <td style="text-align:center;font-size:10px;font-weight:600">${b.producto||'—'}</td>
             ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?gfc[prob]:'var(--light)'}">${v>0?fmt(v):'—'}</td>`).join('')}
             <td style="text-align:center;font-weight:700;color:${gfc[prob]}">${fmt(b.total)}</td>
             <td class="comment">${b.comentario||'—'}</td>
