@@ -105,6 +105,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--offW);color:var(--dark);}
 .prob-table tr:hover td{background:#F7F9FB;}
 .comment{font-size:9px;color:#AAB7B8;font-style:italic;}
 
+/* HUNTER PIPELINE TABLE */
+.hp-wrap{padding:0 28px 28px;overflow-x:auto;}
+.hp-table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
+.hp-table th{background:var(--navy);color:#fff;font-weight:600;font-size:10px;padding:9px 12px;text-transform:uppercase;letter-spacing:.06em;text-align:left;}
+.hp-table th:first-child{border-radius:6px 0 0 0;}
+.hp-table th:last-child{border-radius:0 6px 0 0;text-align:right;}
+.hp-table td{padding:9px 12px;border-bottom:1px solid #EEF0F2;vertical-align:middle;}
+.hp-table tr:nth-child(even) td{background:#FAFBFC;}
+.hp-table tr:hover td{background:#EEF5FB;}
+.hp-table .tpv-val{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-align:right;}
+.hp-eta{font-size:11px;color:var(--slate);}
+.hp-summary{display:flex;gap:16px;padding:0 28px 16px;flex-wrap:wrap;}
+.hp-chip{background:#fff;border-radius:8px;padding:10px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:100px;}
+.hp-chip-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
+.hp-chip-lbl{font-size:10px;color:var(--slate);margin-top:2px;}
+
 footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-top:1px solid #EEF0F2;}
 </style>
 </head>
@@ -117,6 +133,12 @@ footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-t
     <div class="nav-tab" data-page="forecast" onclick="show('forecast',this)">📈 Forecast</div>
     <div class="nav-tab" data-page="hunters" onclick="show('hunters',this)">👥 Por Hunter</div>
     <div class="nav-tab" data-page="pipeline" onclick="show('pipeline',this)">🗂 Pipeline</div>
+    <div class="nav-tab" data-page="h-agustin" onclick="show('h-agustin',this)">🟢 A. Mac</div>
+    <div class="nav-tab" data-page="h-ornella" onclick="show('h-ornella',this)">🔵 O. Di Natale</div>
+    <div class="nav-tab" data-page="h-delfina" onclick="show('h-delfina',this)">🟠 D. Sipes</div>
+    <div class="nav-tab" data-page="h-julieta" onclick="show('h-julieta',this)">🟢 J. Fassi</div>
+    <div class="nav-tab" data-page="h-camila"  onclick="show('h-camila',this)">🟣 C. Valansi</div>
+    <div class="nav-tab" data-page="h-sottile" onclick="show('h-sottile',this)">🔴 J. Sottile</div>
   </div>
 </nav>
 
@@ -141,6 +163,12 @@ footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-t
 <div id="page-forecast" class="page"></div>
 <div id="page-hunters" class="page"></div>
 <div id="page-pipeline" class="page"></div>
+<div id="page-h-agustin" class="page"></div>
+<div id="page-h-ornella" class="page"></div>
+<div id="page-h-delfina" class="page"></div>
+<div id="page-h-julieta" class="page"></div>
+<div id="page-h-camila"  class="page"></div>
+<div id="page-h-sottile" class="page"></div>
 
 <footer>Mercado Pago Argentina · Equipo Big Sellers · Pipeline Mayo 2026</footer>
 
@@ -493,6 +521,216 @@ function buildPipeline() {
 
 // ── ROUTING ──
 const built = {};
+const HUNTER_PAGES = {
+  'h-agustin': {
+    name:'Agustín Mac', color:'#1A9641', seniority:'Sr',
+    brands:[
+    {marca:'Megatone',vertical:'Home',producto:'QR',eta:'Mayo',prob:'ALTA',tpv:2500000},
+    {marca:'Pandora',vertical:'Otros',producto:'QR+Point',eta:'Octubre',prob:'BAJA',tpv:2000000},
+    {marca:'BYD',vertical:'Autos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:900000},
+    {marca:'SAMSA',vertical:'Utilities',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:800000},
+    {marca:'Red Sport',vertical:'Apparel',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:800000},
+    {marca:'Casino Victoria',vertical:'Gambling',producto:'Point+QR',eta:'Julio',prob:'ALTA',tpv:600000},
+    {marca:'Bruno Hermanos',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:600000},
+    {marca:'Grupo lorenzo',vertical:'Electro',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:600000},
+    {marca:'El chañar',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:500000},
+    {marca:'Tyna',vertical:'Alimentos',producto:'Point',eta:'Mayo',prob:'ALTA',tpv:500000},
+    {marca:'Paladar',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:500000},
+    {marca:'Sensei',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:500000},
+    {marca:'Grupo Hermanos',vertical:'Alimentos',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:500000},
+    {marca:'Farmacia Embon',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:400000},
+    {marca:'Farmacia Miguel Lanus',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:400000},
+    {marca:'Super El Lapacho',vertical:'Alimentos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:400000},
+    {marca:'Polleria 3r',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:350000},
+    {marca:'Holy',vertical:'Alimentos',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:350000},
+    {marca:'Pinturas misioneras',vertical:'Construcción',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:300000},
+    {marca:'Casino Neoparana',vertical:'Gambling',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
+    {marca:'Bistecca',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
+    {marca:'Melocoton',vertical:'Apparel',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:300000},
+    {marca:'Sanatorio de la mujer',vertical:'Salud',producto:'Point+QR',eta:'Agosto',prob:'MEDIA',tpv:300000},
+    {marca:'Balcarce 54',vertical:'Construcción',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:250000},
+    {marca:'Belgrano Hogar',vertical:'Electro',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
+    {marca:'Rey del sofa',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
+    {marca:'Maugeri',vertical:'Autos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
+    {marca:'Tahona Panaderia',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000}
+    ]
+  }},
+  'h-ornella': {
+    name:'Ornella Di Natale', color:'#2471A3', seniority:'Ssr',
+    brands:[
+    {marca:'Showsport',vertical:'Apparel',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:1500000},
+    {marca:'Sofitel Cardales',vertical:'Turismo',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
+    {marca:'Aguas de corrientes (acsa)',vertical:'Utilities',producto:'QR',eta:'Junio',prob:'ALTA',tpv:300000},
+    {marca:'Corpico',vertical:'Utilities',producto:'Point',eta:'Junio',prob:'MEDIA',tpv:300000},
+    {marca:'Orso Bianco',vertical:'Apparel',producto:'QR',eta:'Junio',prob:'MEDIA',tpv:300000},
+    {marca:'Glow up',vertical:'Salud',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:300000},
+    {marca:'Pinturerias Shejina',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:300000},
+    {marca:'Rafeeli Shop',vertical:'Salud',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:300000},
+    {marca:'Autoservicio belgrano',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:250000},
+    {marca:'Hoteles Solans',vertical:'Turismo',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:200000},
+    {marca:'Cruci',vertical:'Entretenimiento',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:200000},
+    {marca:'Bergese hermanos',vertical:'Construcción',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:150000},
+    {marca:'Volpato Centro',vertical:'Electro',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
+    {marca:'NESKA indumentaria',vertical:'Apparel',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000}
+    ]
+  }},
+  'h-delfina': {
+    name:'Delfina Sipes', color:'#CA6F1E', seniority:'Jr',
+    brands:[
+    {marca:'Farmacia Lacarra',vertical:'Salud',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:700000},
+    {marca:'Bremen Motors',vertical:'Autos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:500000},
+    {marca:'Chuna siempre con vos',vertical:'Home',producto:'QR+Point',eta:'Septiembre',prob:'BAJA',tpv:500000},
+    {marca:'Heladerias Bahillo',vertical:'Alimentos',producto:'Point',eta:'Junio',prob:'BAJA',tpv:400000},
+    {marca:'Pannus Panaderia',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:300000},
+    {marca:'Bourlot',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
+    {marca:'Panaderia Paracao',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
+    {marca:'Sigre Procrearte',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:200000},
+    {marca:'Jure Accesorios',vertical:'Autos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:200000},
+    {marca:'Caja de psicologos pba',vertical:'Salud',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
+    {marca:'La Mara entretenimiento',vertical:'Entretenimiento',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
+    {marca:'Farmacia Oro Verde',vertical:'Salud',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000},
+    {marca:'Vinoteca Campos',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000},
+    {marca:'Compañia Nativa',vertical:'Home',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:125000},
+    {marca:'Perfumeria Oliveras',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:125000},
+    {marca:'Bodega Septima',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
+    {marca:'Supermayorista GEVA',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
+    {marca:'Supermercado El Picaflor',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:125000}
+    ]
+  }},
+  'h-julieta': {
+    name:'Julieta Fassi Mayola', color:'#1A9641', seniority:'Ssr',
+    brands:[
+    {marca:'Parodi',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:1500000},
+    {marca:'Frigorifico mimen',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:1000000},
+    {marca:'Sodecar',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'MEDIA',tpv:800000},
+    {marca:'La elena',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
+    {marca:'Frigorifico Recreo',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
+    {marca:'Frigorifico La florida',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
+    {marca:'Super Crisitan',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
+    {marca:'soy lola',vertical:'Salud',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
+    {marca:'Pura raza',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:450000},
+    {marca:'La cubana',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
+    {marca:'El ladrillero',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
+    {marca:'Tomy librerias',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
+    {marca:'Vonderthusen',vertical:'Apparel',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
+    {marca:'Dulcilandia',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:350000},
+    {marca:'Red Giro',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:300000},
+    {marca:'Forrajes del oeste',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:250000},
+    {marca:'Carnes del sur',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:250000},
+    {marca:'Riccollini',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
+    {marca:'Supertim',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:200000},
+    {marca:'Newells old boys',vertical:'Entretenimiento',producto:'QR+Point',eta:'TBD',prob:'MEDIA',tpv:200000},
+    {marca:'El fenomeno + Finisterra',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:200000},
+    {marca:'Construcciones del oeste',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:200000},
+    {marca:'Empresa provincial Energia de Santa fe',vertical:'Utilities',producto:'QR',eta:'TBD',prob:'BAJA',tpv:0}
+    ]
+  }},
+  'h-camila': {
+    name:'Camila Valansi', color:'#8E44AD', seniority:'Ssr',
+    brands:[
+    {marca:'Durabox',vertical:'Autos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:250000},
+    {marca:'Farmacia Villegas',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:230000},
+    {marca:'Cafe Registrado',vertical:'Alimentos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:200000},
+    {marca:'Cerámicos Pellegrini',vertical:'Home',producto:'Point+QR',eta:'Mayo',prob:'MEDIA',tpv:200000},
+    {marca:'Minotauro',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:190000},
+    {marca:'Concesión de Racing e Independiente',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:180000},
+    {marca:'Municipalidad de San Vicente',vertical:'Utilities',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:180000}
+    ]
+  }},
+  'h-sottile': {
+    name:'Juan I. Sottile', color:'#C0392B', seniority:'Jr',
+    brands:[
+    {marca:'Tienda Swift',vertical:'Alimentos',producto:'Point+QR',eta:'Agosto',prob:'MEDIA',tpv:500000},
+    {marca:'Avicam',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:350000},
+    {marca:'Avicola Victoria',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:300000},
+    {marca:'Supermercado Arco Iris',vertical:'Alimentos',producto:'Point+QR',eta:'Agosto',prob:'BAJA',tpv:300000},
+    {marca:'BAV',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:250000},
+    {marca:'Gio Farma',vertical:'Salud',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
+    {marca:'LasChulas',vertical:'Apparel',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:200000},
+    {marca:'Amarilla Gas',vertical:'Utilities',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:200000},
+    {marca:'Bartolito Mayorista',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
+    {marca:'Servi SRL',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:150000},
+    {marca:'Supermercado Don Gustavo',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:125000},
+    {marca:'Maxi Kiosco Juanse',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:125000},
+    {marca:'Carnicerias El Exito',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
+    {marca:'CDIMEX SA',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
+    {marca:'Supermercado OTA',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
+    {marca:'Baby Pop',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
+    {marca:'Upy Shop',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000}
+    ]
+  }}
+};
+
+
+function buildHunterPage(key) {
+  const h = HUNTER_PAGES[key];
+  if (!h) return;
+  const sorted = [...h.brands].sort((a,b) => b.tpv - a.tpv);
+  const totalTPV  = sorted.reduce((a,b) => a + b.tpv, 0);
+  const altaCount = sorted.filter(b => b.prob === 'ALTA').length;
+  const fmtV = n => n >= 1e6 ? `$${(n/1e6).toFixed(1)} Mn` : n > 0 ? `$${(n/1e3).toFixed(0)} K` : '—';
+  const pcls = p => p==='ALTA'?'prob-alta':p==='MEDIA'?'prob-media':'prob-baja';
+
+  const html = `
+  <div class="hero" style="padding:24px 32px 20px;background:linear-gradient(135deg,${h.color}22 0%,#0D1B2A 60%);border-left:5px solid ${h.color}">
+    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+      <div style="width:52px;height:52px;border-radius:50%;background:${h.color};display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;flex-shrink:0">${h.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}</div>
+      <div>
+        <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff">${h.name}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">${h.seniority} · Big Sellers Hunter</div>
+      </div>
+      <div style="margin-left:auto;display:flex;gap:12px;flex-wrap:wrap">
+        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
+          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:${h.color}">${sorted.length}</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Cuentas</div>
+        </div>
+        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
+          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:${h.color}">${fmtV(totalTPV)}</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">TPV Potencial</div>
+        </div>
+        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
+          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#1A9641">${altaCount}</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">ALTA prob.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hp-wrap">
+    <table class="hp-table">
+      <thead>
+        <tr>
+          <th style="width:28px">#</th>
+          <th>Marca</th>
+          <th>Industria</th>
+          <th style="text-align:center">Producto</th>
+          <th style="text-align:center">ETA</th>
+          <th style="text-align:center">Probabilidad</th>
+          <th style="text-align:right">TPV Potencial</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${sorted.map((b,i) => `
+        <tr>
+          <td style="color:var(--slate);font-size:11px;font-weight:600">${i+1}</td>
+          <td><strong>${b.marca}</strong></td>
+          <td style="font-size:11px;color:var(--slate)">${b.vertical}</td>
+          <td style="text-align:center">
+            <span style="background:#EEF4FF;color:#2980B9;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${b.producto}</span>
+          </td>
+          <td style="text-align:center" class="hp-eta">${b.eta}</td>
+          <td style="text-align:center">
+            <span class="prob-badge ${pcls(b.prob)}">${b.prob}</span>
+          </td>
+          <td class="tpv-val" style="color:${b.prob==='ALTA'?'var(--alta)':b.prob==='MEDIA'?'var(--media)':'var(--baja)'}">${fmtV(b.tpv)}</td>
+        </tr>`).join('')}
+      </tbody>
+    </table>
+  </div>`;
+
+  document.getElementById('page-' + key).innerHTML = html;
+}
+
 function show(key,tab){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
@@ -503,6 +741,7 @@ function show(key,tab){
     else if(key==='forecast') buildForecast();
     else if(key==='hunters') buildHunters();
     else if(key==='pipeline') buildPipeline();
+    else if(key.startsWith('h-')) buildHunterPage(key);
     built[key]=true;
   }
 }
