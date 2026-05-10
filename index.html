@@ -8,118 +8,126 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
 :root {
-  --navy:#0D1B2A; --blue:#1B4F72; --teal:#117A65;
-  --alta:#1A9641; --media:#D4AC0D; --baja:#C0392B;
-  --white:#FFFFFF; --offW:#F8F9FA; --slate:#5D6D7E;
-  --light:#D5D8DC; --dark:#1A252F;
-  --shadow:0 2px 14px rgba(0,0,0,0.09);
+  --navy:#0D1B2A; --teal:#117A65; --teal2:#00D4C8;
+  --alta:#1A9641; --altaL:#D5F5E3; --altaD:#0F5C28;
+  --media:#D4AC0D; --mediaL:#FEF9E7; --mediaD:#9A7D0A;
+  --baja:#C0392B; --bajaL:#FDEDEC; --bajaD:#922B21;
+  --white:#fff; --offW:#F8F9FA; --light:#E2E8F0;
+  --slate:#5D6D7E; --dark:#1A252F;
+  --shadow:0 2px 14px rgba(0,0,0,.09);
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--offW);color:var(--dark);}
 
 /* NAV */
 .nav{background:var(--navy);position:sticky;top:0;z-index:100;display:flex;align-items:center;padding:0 20px;height:52px;border-bottom:3px solid var(--teal);}
-.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:#00D4C8;letter-spacing:.08em;margin-right:20px;white-space:nowrap;}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:13px;color:var(--teal2);letter-spacing:.08em;margin-right:16px;white-space:nowrap;}
 .nav-tabs{display:flex;gap:2px;flex:1;overflow-x:auto;scrollbar-width:none;}
 .nav-tabs::-webkit-scrollbar{display:none;}
-.nav-tab{padding:6px 14px;font-size:12px;font-weight:500;color:rgba(255,255,255,.5);cursor:pointer;border-radius:6px 6px 0 0;white-space:nowrap;transition:all .2s;border-bottom:3px solid transparent;margin-bottom:-3px;}
+.nav-tab{padding:6px 13px;font-size:12px;font-weight:500;color:rgba(255,255,255,.45);cursor:pointer;border-radius:6px 6px 0 0;white-space:nowrap;transition:all .2s;border-bottom:3px solid transparent;margin-bottom:-3px;}
 .nav-tab:hover{color:rgba(255,255,255,.85);}
-.nav-tab.active{color:#fff;background:rgba(0,212,200,.1);border-bottom-color:#00D4C8;}
+.nav-tab.active{color:#fff;background:rgba(0,212,200,.12);border-bottom-color:var(--teal2);}
 
 /* HERO */
-.hero{background:var(--navy);padding:48px 40px 40px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--teal);}
-.hero-badge{display:inline-block;background:var(--teal);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:11px;letter-spacing:.1em;padding:4px 12px;border-radius:4px;margin-bottom:16px;}
-.hero h1{font-family:'Syne',sans-serif;font-size:clamp(28px,4vw,52px);font-weight:800;color:#fff;line-height:1.05;margin-bottom:8px;}
-.hero h1 span{color:#00D4C8;}
-.hero-sub{font-size:14px;color:rgba(160,196,216,.9);margin-bottom:32px;}
-.hero-stats{display:flex;gap:28px;flex-wrap:wrap;padding-top:20px;border-top:1px solid rgba(0,212,200,.25);}
-.hs-val{font-family:'Syne',sans-serif;font-size:24px;font-weight:700;color:#00D4C8;}
-.hs-label{font-size:10px;color:rgba(160,196,216,.7);text-transform:uppercase;letter-spacing:.07em;margin-top:2px;}
+.hero{background:var(--navy);padding:40px 36px 34px;border-left:5px solid var(--teal);}
+.hero-badge{display:inline-block;background:var(--teal);color:#fff;font-family:'Syne',sans-serif;font-weight:700;font-size:10px;letter-spacing:.12em;padding:3px 10px;border-radius:4px;margin-bottom:14px;}
+.hero h1{font-family:'Syne',sans-serif;font-size:clamp(26px,4vw,48px);font-weight:800;color:#fff;line-height:1.06;margin-bottom:6px;}
+.hero h1 span{color:var(--teal2);}
+.hero-sub{font-size:13px;color:rgba(160,196,216,.85);margin-bottom:24px;}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap;padding-top:18px;border-top:1px solid rgba(0,212,200,.2);}
+.hs-val{font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:var(--teal2);}
+.hs-lbl{font-size:10px;color:rgba(160,196,216,.6);text-transform:uppercase;letter-spacing:.07em;margin-top:2px;}
 
 /* PAGES */
-.page{display:none;animation:fadeIn .2s ease;}
-.page.active{display:block;}
-@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.page{display:none;}
+.page.active{display:block;animation:fadeUp .18s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
 
 /* SECTION HEAD */
-.sec-head{display:flex;align-items:center;gap:14px;padding:22px 28px 14px;}
-.sec-bar{width:5px;height:38px;border-radius:3px;flex-shrink:0;}
-.sec-head h2{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;color:var(--navy);}
-.sec-head p{font-size:12px;color:var(--slate);margin-top:2px;}
+.sec-head{display:flex;align-items:center;gap:12px;padding:20px 28px 12px;}
+.sec-bar{width:5px;height:36px;border-radius:3px;flex-shrink:0;}
+.sec-head h2{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);}
+.sec-head p{font-size:11px;color:var(--slate);margin-top:2px;}
 
-/* SCENARIO CARDS */
-.scenario-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;padding:0 28px 20px;}
+/* CARDS */
+.card{background:#fff;border-radius:12px;box-shadow:var(--shadow);}
+
+/* SCENARIO GRID */
+.sc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:14px;padding:0 28px 20px;}
 .sc-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
-.sc-card-head{padding:14px 18px 10px;}
-.sc-card-title{font-family:'Syne',sans-serif;font-size:14px;font-weight:700;}
-.sc-card-desc{font-size:11px;color:var(--slate);margin-top:3px;font-style:italic;}
-.sc-month{padding:10px 18px;border-top:1px solid #EEF0F2;}
+.sc-head{padding:14px 18px 10px;}
+.sc-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;}
+.sc-desc{font-size:11px;color:var(--slate);margin-top:2px;font-style:italic;}
+.sc-month{padding:9px 18px;border-top:1px solid #EEF0F2;}
 .sc-month:nth-child(even){background:#FAFBFC;}
-.sc-month-name{font-size:10px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;}
-.sc-month-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;margin-bottom:4px;}
-.sc-bar-track{height:6px;background:#EEF0F2;border-radius:3px;overflow:hidden;margin-bottom:3px;}
-.sc-bar-fill{height:100%;border-radius:3px;transition:width .6s ease;}
+.sc-mname{font-size:10px;font-weight:600;color:var(--slate);text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;}
+.sc-mval{font-family:'Syne',sans-serif;font-size:19px;font-weight:700;margin-bottom:3px;}
+.sc-bar{height:5px;background:#EEF0F2;border-radius:3px;overflow:hidden;margin-bottom:2px;}
+.sc-bar-fill{height:100%;border-radius:3px;}
 .sc-pct{font-size:10px;display:flex;justify-content:space-between;}
 
-/* CHART CARDS */
+/* CHART */
 .chart-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:0 28px 20px;}
-@media(max-width:800px){.chart-row{grid-template-columns:1fr;}}
+@media(max-width:780px){.chart-row{grid-template-columns:1fr;}}
 .chart-card{background:#fff;border-radius:12px;padding:18px;box-shadow:var(--shadow);}
-.chart-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:12px;}
-.chart-wrap{position:relative;height:240px;}
+.chart-title{font-family:'Syne',sans-serif;font-size:12px;font-weight:700;color:var(--navy);margin-bottom:10px;}
+.chart-wrap{position:relative;height:230px;}
 
 /* BRANDS TABLE */
-.brands-wrap{padding:0 28px 24px;overflow-x:auto;}
-.brands-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:700;color:var(--navy);margin-bottom:10px;text-transform:uppercase;letter-spacing:.05em;}
-.brands-table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
-.brands-table th{background:var(--navy);color:#fff;font-weight:600;font-size:10px;padding:8px 10px;text-transform:uppercase;letter-spacing:.06em;}
-.brands-table td{padding:8px 10px;border-bottom:1px solid #EEF0F2;}
-.brands-table tr:nth-child(even) td{background:#FAFBFC;}
-.brands-table tr:hover td{background:#EEF5FB;}
-.prob-badge{display:inline-block;padding:2px 7px;border-radius:4px;font-weight:700;font-size:9px;}
-.prob-alta{background:#D5F5E3;color:#1A9641;}
-.prob-media{background:#FEF9E7;color:#9A7D0A;}
-.prob-baja{background:#FDEDEC;color:#C0392B;}
+.tbl-wrap{padding:0 28px 24px;overflow-x:auto;}
+.btable{width:100%;border-collapse:collapse;font-size:12px;min-width:800px;}
+.btable th{background:var(--navy);color:#fff;font-weight:600;font-size:10px;padding:8px 10px;text-transform:uppercase;letter-spacing:.06em;}
+.btable td{padding:8px 10px;border-bottom:1px solid #EEF0F2;vertical-align:middle;}
+.btable tr:nth-child(even) td{background:#FAFBFC;}
+.btable tr:hover td{background:#EEF5FB;}
 
-/* HUNTER CARDS */
-.hunter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;padding:0 28px 28px;}
+/* PROB BADGES */
+.pb{display:inline-block;padding:2px 7px;border-radius:4px;font-weight:700;font-size:9px;}
+.pb-alta{background:var(--altaL);color:var(--altaD);}
+.pb-media{background:var(--mediaL);color:var(--mediaD);}
+.pb-baja{background:var(--bajaL);color:var(--bajaD);}
+
+/* PIPELINE SECTIONS */
+.prob-sec{margin:0 28px 20px;}
+.prob-hd{padding:8px 14px;border-radius:8px 8px 0 0;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#fff;display:flex;justify-content:space-between;}
+.prob-tbl{width:100%;border-collapse:collapse;font-size:11px;background:#fff;border:1px solid #EEF0F2;border-top:none;}
+.prob-tbl th{padding:6px 10px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid #EEF0F2;color:var(--slate);}
+.prob-tbl td{padding:7px 10px;border-bottom:1px solid #EEF0F2;}
+.prob-tbl tr:hover td{background:#F7F9FB;}
+.cmt{font-size:9px;color:#AAB7B8;font-style:italic;}
+
+/* HUNTER GRID */
+.h-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:14px;padding:0 28px 24px;}
 .h-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);}
-.h-card-head{display:flex;align-items:center;gap:12px;padding:14px 18px 10px;border-bottom:1px solid #EEF0F2;}
-.h-avatar{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
+.h-head{display:flex;align-items:center;gap:12px;padding:14px 18px 10px;border-bottom:1px solid #EEF0F2;}
+.h-av{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:700;font-size:14px;color:#fff;flex-shrink:0;}
 .h-name{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--navy);}
-.h-sub{font-size:10px;color:var(--slate);margin-top:2px;}
+.h-sub{font-size:10px;color:var(--slate);margin-top:1px;}
 .h-bars{padding:10px 18px 14px;}
-.h-bar-row{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
-.h-bar-label{font-size:10px;color:var(--slate);width:38px;flex-shrink:0;}
-.h-bar-track{flex:1;height:8px;background:#EEF0F2;border-radius:4px;overflow:hidden;}
-.h-bar-fill{height:100%;border-radius:4px;transition:width .6s ease;}
-.h-bar-val{font-size:10px;font-weight:600;width:60px;text-align:right;flex-shrink:0;}
+.h-br{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.h-bl{font-size:10px;color:var(--slate);width:36px;flex-shrink:0;}
+.h-bt{flex:1;height:7px;background:#EEF0F2;border-radius:4px;overflow:hidden;}
+.h-bf{height:100%;border-radius:4px;}
+.h-bv{font-size:10px;font-weight:600;width:58px;text-align:right;flex-shrink:0;}
 
-/* PIPELINE DETAIL */
-.prob-section{margin:0 28px 20px;}
-.prob-header{padding:8px 14px;border-radius:8px 8px 0 0;font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:#fff;display:flex;justify-content:space-between;align-items:center;}
-.prob-table{width:100%;border-collapse:collapse;font-size:11px;}
-.prob-table th{padding:6px 10px;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;border-bottom:2px solid #EEF0F2;color:var(--slate);}
-.prob-table td{padding:7px 10px;border-bottom:1px solid #EEF0F2;}
-.prob-table tr:hover td{background:#F7F9FB;}
-.comment{font-size:9px;color:#AAB7B8;font-style:italic;}
-
-/* HUNTER PIPELINE TABLE */
-.hp-wrap{padding:0 28px 28px;overflow-x:auto;}
-.hp-table{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
-.hp-table th{background:var(--navy);color:#fff;font-weight:600;font-size:10px;padding:9px 12px;text-transform:uppercase;letter-spacing:.06em;text-align:left;}
-.hp-table th:first-child{border-radius:6px 0 0 0;}
-.hp-table th:last-child{border-radius:0 6px 0 0;text-align:right;}
-.hp-table td{padding:9px 12px;border-bottom:1px solid #EEF0F2;vertical-align:middle;}
-.hp-table tr:nth-child(even) td{background:#FAFBFC;}
-.hp-table tr:hover td{background:#EEF5FB;}
-.hp-table .tpv-val{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-align:right;}
-.hp-eta{font-size:11px;color:var(--slate);}
-.hp-summary{display:flex;gap:16px;padding:0 28px 16px;flex-wrap:wrap;}
-.hp-chip{background:#fff;border-radius:8px;padding:10px 18px;box-shadow:var(--shadow);display:flex;flex-direction:column;min-width:100px;}
-.hp-chip-val{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
-.hp-chip-lbl{font-size:10px;color:var(--slate);margin-top:2px;}
+/* HUNTER PIPELINE PAGE */
+.hp-hero{padding:20px 28px;border-left:5px solid var(--teal);}
+.hp-hero-inner{display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.hp-av{width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;flex-shrink:0;}
+.hp-chips{margin-left:auto;display:flex;gap:12px;flex-wrap:wrap;}
+.hp-chip{border-radius:8px;padding:8px 16px;text-align:center;background:rgba(0,0,0,.25);}
+.hp-chip-v{font-family:'Syne',sans-serif;font-size:20px;font-weight:700;}
+.hp-chip-l{font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em;margin-top:1px;}
+.hp-wrap{padding:16px 28px 28px;overflow-x:auto;}
+.hp-tbl{width:100%;border-collapse:collapse;font-size:12px;min-width:700px;}
+.hp-tbl th{background:var(--navy);color:#fff;font-weight:600;font-size:10px;padding:9px 12px;text-transform:uppercase;letter-spacing:.06em;text-align:left;}
+.hp-tbl th:last-child{text-align:right;}
+.hp-tbl td{padding:9px 12px;border-bottom:1px solid #EEF0F2;vertical-align:middle;}
+.hp-tbl tr:nth-child(even) td{background:#FAFBFC;}
+.hp-tbl tr:hover td{background:#EEF5FB;}
+.prod-chip{background:#EEF4FF;color:#2471A3;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700;}
+.eta-lbl{font-size:11px;color:var(--slate);}
+.tpv-r{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;text-align:right;}
 
 footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-top:1px solid #EEF0F2;}
 </style>
@@ -129,22 +137,21 @@ footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-t
 <nav class="nav">
   <div class="nav-logo">MP · EQUIPO ALVA</div>
   <div class="nav-tabs">
-    <div class="nav-tab active" data-page="resumen" onclick="show('resumen',this)">📊 Resumen</div>
-    <div class="nav-tab" data-page="forecast" onclick="show('forecast',this)">📈 Forecast</div>
-    <div class="nav-tab" data-page="hunters" onclick="show('hunters',this)">👥 Por Hunter</div>
-    <div class="nav-tab" data-page="pipeline" onclick="show('pipeline',this)">🗂 Pipeline</div>
-    <div class="nav-tab" data-page="h-agustin" onclick="show('h-agustin',this)">🟢 A. Mac</div>
-    <div class="nav-tab" data-page="h-ornella" onclick="show('h-ornella',this)">🔵 O. Di Natale</div>
-    <div class="nav-tab" data-page="h-delfina" onclick="show('h-delfina',this)">🟠 D. Sipes</div>
-    <div class="nav-tab" data-page="h-julieta" onclick="show('h-julieta',this)">🟢 J. Fassi</div>
-    <div class="nav-tab" data-page="h-camila"  onclick="show('h-camila',this)">🟣 C. Valansi</div>
-    <div class="nav-tab" data-page="h-sottile" onclick="show('h-sottile',this)">🔴 J. Sottile</div>
+    <div class="nav-tab active" onclick="show('resumen',this)">📊 Resumen</div>
+    <div class="nav-tab" onclick="show('forecast',this)">📈 Forecast</div>
+    <div class="nav-tab" onclick="show('hunters',this)">👥 Por Hunter</div>
+    <div class="nav-tab" onclick="show('pipeline',this)">🗂 Pipeline</div>
+    <div class="nav-tab" onclick="show('h-agustin',this)">🟢 A. Mac</div>
+    <div class="nav-tab" onclick="show('h-ornella',this)">🔵 O. Di Natale</div>
+    <div class="nav-tab" onclick="show('h-delfina',this)">🟠 D. Sipes</div>
+    <div class="nav-tab" onclick="show('h-julieta',this)">🟢 J. Fassi</div>
+    <div class="nav-tab" onclick="show('h-camila',this)">🟣 C. Valansi</div>
+    <div class="nav-tab" onclick="show('h-sottile',this)">🔴 J. Sottile</div>
   </div>
 </nav>
 
-<div style="background:#0D1B2A;padding:6px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid rgba(0,212,200,.2);">
-  <span style="font-size:11px;color:rgba(160,196,216,.6);">Páginas relacionadas:</span>
-  <a href="forecast-gestion.html" style="padding:4px 14px;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.5);color:#00D4C8;font-size:11px;font-weight:600;border-radius:5px;text-decoration:none;">📊 Forecast vs Plan Gestión →</a>
+<div style="background:#0D1B2A;padding:5px 20px;border-bottom:1px solid rgba(0,212,200,.2);">
+  <a href="forecast-gestion.html" style="padding:3px 12px;background:rgba(0,180,216,.15);border:1px solid rgba(0,180,216,.5);color:#00D4C8;font-size:11px;font-weight:600;border-radius:5px;text-decoration:none;">📊 Forecast vs Plan Gestión →</a>
 </div>
 
 <div class="hero">
@@ -152,16 +159,16 @@ footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-t
   <h1>Pipeline &amp; <span>Forecast</span></h1>
   <p class="hero-sub">Equipo Juan Pablo Alva · Proyección Mayo → Agosto 2026</p>
   <div class="hero-stats">
-    <div><div class="hs-val">$24.85 Mn</div><div class="hs-label">Real YTD Ene-Abr</div></div>
-    <div><div class="hs-val" id="hs-pipe">—</div><div class="hs-label">TPV Total Pipeline</div></div>
-    <div><div class="hs-val" id="hs-alta">—</div><div class="hs-label">Marcas ALTA</div></div>
-    <div><div class="hs-val" id="hs-total">—</div><div class="hs-label">Marcas en pipeline</div></div>
+    <div><div class="hs-val">$24.85 Mn</div><div class="hs-lbl">Real YTD Ene-Abr</div></div>
+    <div><div class="hs-val" id="hs-pipe">—</div><div class="hs-lbl">TPV Total Pipeline</div></div>
+    <div><div class="hs-val" id="hs-alta">—</div><div class="hs-lbl">Marcas ALTA</div></div>
+    <div><div class="hs-val" id="hs-total">—</div><div class="hs-lbl">Marcas en pipeline</div></div>
   </div>
 </div>
 
-<div id="page-resumen" class="page active"></div>
+<div id="page-resumen"  class="page active"></div>
 <div id="page-forecast" class="page"></div>
-<div id="page-hunters" class="page"></div>
+<div id="page-hunters"  class="page"></div>
 <div id="page-pipeline" class="page"></div>
 <div id="page-h-agustin" class="page"></div>
 <div id="page-h-ornella" class="page"></div>
@@ -170,584 +177,426 @@ footer{text-align:center;padding:20px;font-size:10px;color:var(--slate);border-t
 <div id="page-h-camila"  class="page"></div>
 <div id="page-h-sottile" class="page"></div>
 
-<footer>Mercado Pago Argentina · Equipo Big Sellers · Pipeline Mayo 2026</footer>
+<footer>Mercado Pago Argentina · Equipo Big Sellers · Juan Pablo Alva · Mayo 2026</footer>
 
 <script>
-const MONTHS_F = ['Mayo','Junio','Julio','Agosto'];
-const MONTHS_K = ['mayo','jun','jul','ago'];
-
-const PLAN = { Mayo:9061051, Junio:11662447, Julio:14325996, Agosto:17242814 };
-
-const FORECAST = {
-  ALTA:     { Mayo:10493556, Junio:13903556, Julio:16593556, Agosto:16818556 },
-  ALTA_MED: { Mayo:10543556, Junio:16358556, Julio:25053556, Agosto:28228556 },
-  ALTA_MED_BAJA:{ Mayo:10543556, Junio:16358556, Julio:29933556, Agosto:33403556 },
+// ─── CONSTANTS ────────────────────────────────────────────────────────────────
+const MONTHS  = ['Mayo','Junio','Julio','Agosto'];
+const PLAN    = {Mayo:9061051, Junio:11662447, Julio:14325996, Agosto:17242814};
+const FCST = {
+  ALTA:  {Mayo:10493556, Junio:13903556, Julio:16593556, Agosto:16818556},
+  MEDIA: {Mayo:10543556, Junio:16358556, Julio:25053556, Agosto:28228556},
+  BAJA:  {Mayo:10543556, Junio:16358556, Julio:29933556, Agosto:33403556}
 };
-// Plan Anual updated: now includes individual hunter plans
+const HUNTERS_CHART = {
+  'Agustín Mac':       {color:'#1A9641', mayo:2525000, jun:6950000,  jul:12250000, ago:12950000},
+  'Ornella Di Natale': {color:'#2471A3', mayo:300000,  jun:1850000,  jul:3700000,  ago:4450000},
+  'Delfina Sipes':     {color:'#CA6F1E', mayo:425000,  jun:785000,   jul:2475000,  ago:2600000},
+  'Julieta Fassi':     {color:'#1A9641', mayo:300000,  jun:600000,   jul:700000,   ago:700000},
+  'Camila Valansi':    {color:'#8E44AD', mayo:200000,  jun:850000,   jul:1070000,  ago:1120000},
+  'Juan I. Sottile':   {color:'#C0392B', mayo:250000,  jun:905000,   jul:1765000,  ago:2305000}
+};
 
+// ─── BRANDS (Pipeline x Hunter sheet) ─────────────────────────────────────────
 const BRANDS = [
-  {prob:"ALTA",  marca:"Megatone",           hunter:"Agustín Mac",        mayo:500000,  jun:1500000, jul:2000000, ago:2000000, total:14000000, zona:"Santa Fe",   vertical:"Home",          producto:"QR",       comentario:"Sale después del Hot Sale"},
-  {prob:"ALTA",  marca:"Tyna",               hunter:"Agustín Mac",        mayo:400000,  jun:500000,  jul:500000,  ago:500000,  total:3900000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point",    comentario:"Encendida"},
-  {prob:"ALTA",  marca:"Super El Lapacho",   hunter:"Agustín Mac",        mayo:350000,  jun:400000,  jul:400000,  ago:400000,  total:3150000,  zona:"Corrientes", vertical:"Alimentos",     producto:"QR+Point", comentario:"Supermercado, ganada"},
-  {prob:"ALTA",  marca:"Bremen Motors",      hunter:"Delfina Sipes",      mayo:100000,  jun:200000,  jul:300000,  ago:500000,  total:3100000,  zona:"Otra",       vertical:"Autos",         producto:"QR+Point", comentario:"Por encender"},
-  {prob:"ALTA",  marca:"Pinturas misioneras",hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:600000,  ago:600000,  total:3750000,  zona:"Misiones",   vertical:"Construcción",  producto:"Point+QR", comentario:"Fábrica de pinturas"},
-  {prob:"ALTA",  marca:"Red Giro",           hunter:"Julieta Fassi",      mayo:100000,  jun:200000,  jul:300000,  ago:300000,  total:2100000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"Casino Neoparana",   hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:350000,  ago:350000,  total:2300000,  zona:"Entre Ríos", vertical:"Gambling",      producto:"QR+Point", comentario:"Sale en Junio"},
-  {prob:"ALTA",  marca:"Bistecca",           hunter:"Agustín Mac",        mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Carnicería Rosario"},
-  {prob:"ALTA",  marca:"Casino Victoria",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Entre Ríos", vertical:"Gambling",      producto:"Point+QR", comentario:"Postergado a Jun/Jul"},
-  {prob:"ALTA",  marca:"Rafeeli Shop",       hunter:"Ornella Di Natale",  mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Salud",         producto:"QR+Point", comentario:""},
-  {prob:"ALTA",  marca:"Durabox",            hunter:"Camila Valansi",     mayo:50000,   jun:250000,  jul:250000,  ago:250000,  total:1800000,  zona:"Santa Fe",   vertical:"Autos",         producto:"QR+Point", comentario:"Propuesta enviada"},
-  {prob:"ALTA",  marca:"Cafe Registrado",    hunter:"Camila Valansi",     mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Otra",       vertical:"Alimentos",     producto:"QR+Point", comentario:"Encendido"},
-  {prob:"ALTA",  marca:"Panaderia Paracao",  hunter:"Delfina Sipes",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta aceptada"},
-  {prob:"ALTA",  marca:"Riccollini",         hunter:"Julieta Fassi",      mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  zona:"Otra",       vertical:"Alimentos",     producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"Sofitel Cardales",   hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  zona:"Bs As",      vertical:"Turismo",       producto:"QR+Point", comentario:""},
-  {prob:"ALTA",  marca:"Aguas de corrientes (acsa)",hunter:"Ornella Di Natale",mayo:0,  jun:100000,  jul:300000,  ago:300000,  total:1900000,  zona:"Corrientes", vertical:"Utilities",     producto:"QR",       comentario:""},
-  {prob:"ALTA",  marca:"Hoteles Solans",     hunter:"Ornella Di Natale",  mayo:0,       jun:150000,  jul:200000,  ago:200000,  total:1350000,  zona:"Santa Fe",   vertical:"Turismo",       producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"Supertim",           hunter:"Julieta Fassi",      mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"Gio Farma",          hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:200000,  ago:200000,  total:1475000,  zona:"Misiones",   vertical:"Salud",         producto:"Point+QR", comentario:"Encendida"},
-  {prob:"ALTA",  marca:"Bartolito Mayorista",hunter:"Juan I. Sottile",    mayo:125000,  jun:150000,  jul:150000,  ago:150000,  total:1175000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta enviada"},
-  {prob:"ALTA",  marca:"Compañia Nativa",    hunter:"Delfina Sipes",      mayo:0,       jun:100000,  jul:125000,  ago:125000,  total:850000,   zona:"Bs As",      vertical:"Home",          producto:"QR+Point", comentario:"Campaña post hot sale"},
-  {prob:"ALTA",  marca:"Perfumeria Oliveras",hunter:"Delfina Sipes",      mayo:0,       jun:60000,   jul:100000,  ago:125000,  total:785000,   zona:"Santa Fe",   vertical:"Salud",         producto:"QR+Point", comentario:"Ver tema tag"},
-  {prob:"ALTA",  marca:"Volpato Centro",     hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Electro",       producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"NESKA indumentaria", hunter:"Ornella Di Natale",  mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  zona:"Santa Fe",   vertical:"Apparel",       producto:"Point+QR", comentario:""},
-  {prob:"ALTA",  marca:"Caja de psicologos pba",hunter:"Delfina Sipes",   mayo:50000,   jun:100000,  jul:150000,  ago:150000,  total:1050000,  zona:"Bs As",      vertical:"Salud",         producto:"Point+QR", comentario:"Points enviados"},
-  {prob:"ALTA",  marca:"La Mara entret.",    hunter:"Delfina Sipes",      mayo:125000,  jun:125000,  jul:200000,  ago:200000,  total:1150000,  zona:"Otra",       vertical:"Entretenimiento",producto:"Point+QR", comentario:"Encendida"},
-  {prob:"MEDIA", marca:"SAMSA",              hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:800000,  ago:800000,  total:5000000,  zona:"Misiones",   vertical:"Utilities",     producto:"QR+Point", comentario:"Integración QR Junio"},
-  {prob:"MEDIA", marca:"Showsport",          hunter:"Ornella Di Natale",  mayo:0,       jun:0,       jul:300000,  ago:1000000, total:7300000,  zona:"Corrientes", vertical:"Apparel",       producto:"QR+Point", comentario:""},
-  {prob:"MEDIA", marca:"El chañar",          hunter:"Agustín Mac",        mayo:0,       jun:200000,  jul:500000,  ago:500000,  total:3200000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Carnicerías Rosario"},
-  {prob:"MEDIA", marca:"Grupo lorenzo",      hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Electro",       producto:"QR+Point", comentario:"Contrato Payway 2028"},
-  {prob:"MEDIA", marca:"Farmacia Embon",     hunter:"Agustín Mac",        mayo:0,       jun:300000,  jul:400000,  ago:400000,  total:2700000,  zona:"Santa Fe",   vertical:"Salud",         producto:"QR+Point", comentario:"Varios CUITs"},
-  {prob:"MEDIA", marca:"Paladar",            hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Santa Fe",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Avanzando propuesta"},
-  {prob:"MEDIA", marca:"Sensei",             hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  zona:"Entre Ríos", vertical:"Home",          producto:"QR+Point", comentario:"Interesado"},
-  {prob:"MEDIA", marca:"Farmacia Miguel Lanus",hunter:"Agustín Mac",      mayo:0,       jun:200000,  jul:400000,  ago:400000,  total:2600000,  zona:"Misiones",   vertical:"Salud",         producto:"QR+Point", comentario:"Muy cerca de cerrar"},
-  {prob:"MEDIA", marca:"Grupo Hermanos",     hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:500000,  total:2500000,  zona:"Misiones",   vertical:"Alimentos",     producto:"QR+Point", comentario:"Gastronomía Iguazú"},
-  {prob:"MEDIA", marca:"Cerámicos Pellegrini",hunter:"Camila Valansi",    mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  zona:"Entre Ríos", vertical:"Home",          producto:"Point+QR", comentario:"Están interesados"},
-  {prob:"MEDIA", marca:"Corpico",            hunter:"Ornella Di Natale",  mayo:0,       jun:200000,  jul:300000,  ago:300000,  total:2000000,  zona:"Otra",       vertical:"Utilities",     producto:"Point",    comentario:""},
-  {prob:"MEDIA", marca:"Orso Bianco",        hunter:"Ornella Di Natale",  mayo:0,       jun:100000,  jul:300000,  ago:300000,  total:1900000,  zona:"Corrientes", vertical:"Apparel",       producto:"QR",       comentario:""},
-  {prob:"MEDIA", marca:"Farmacia Villegas",  hunter:"Camila Valansi",     mayo:0,       jun:100000,  jul:230000,  ago:230000,  total:1480000,  zona:"Entre Ríos", vertical:"Salud",         producto:"QR+Point", comentario:"Negociando"},
-  {prob:"MEDIA", marca:"Avicola Victoria",   hunter:"Juan I. Sottile",    mayo:0,       jun:200000,  jul:250000,  ago:300000,  total:1950000,  zona:"Otra",       vertical:"Alimentos",     producto:"Point+QR", comentario:"Propuesta enviada"},
-  {prob:"MEDIA", marca:"LasChulas",          hunter:"Juan I. Sottile",    mayo:0,       jun:125000,  jul:170000,  ago:185000,  total:1280000,  zona:"Entre Ríos", vertical:"Apparel",       producto:"Point+QR", comentario:"Interesado"},
-  {prob:"BAJA",  marca:"BYD",               hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:900000,  ago:900000,  total:5400000,  zona:"Otra",       vertical:"Autos",         producto:"Point+QR", comentario:"40 locales"},
-  {prob:"BAJA",  marca:"Pandora",           hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:0,       ago:0,       total:6000000,  zona:"Otra",       vertical:"Otros",         producto:"QR+Point", comentario:"Activación Oct"},
-  {prob:"BAJA",  marca:"Red Sport",         hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Santa Fe",   vertical:"Apparel",       producto:"Point+QR", comentario:"12 locales"},
-  {prob:"BAJA",  marca:"Bruno Hermanos",    hunter:"Agustín Mac",        mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  zona:"Misiones",   vertical:"Alimentos",     producto:"Point+QR", comentario:""},
-  {prob:"BAJA",  marca:"Farmacia Lacarra",  hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:300000,  ago:300000,  total:2500000,  zona:"Otra",       vertical:"Salud",         producto:"QR+Point", comentario:"11 locales"},
-  {prob:"BAJA",  marca:"Heladerias Bahillo",hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1225000,  zona:"Entre Ríos", vertical:"Alimentos",     producto:"Point",    comentario:""},
-  {prob:"BAJA",  marca:"Bourlot",           hunter:"Delfina Sipes",      mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1000000,  zona:"Santa Fe",   vertical:"Home",          producto:"QR+Point", comentario:""},
+  {prob:'ALTA',  marca:'Megatone',           hunter:'Agustín Mac',       mayo:500000,  jun:1500000, jul:2000000, ago:2000000, total:14000000, vertical:'Home',          producto:'QR',       eta:'Mayo',       comentario:'Sale después del Hot Sale'},
+  {prob:'ALTA',  marca:'Tyna',               hunter:'Agustín Mac',       mayo:400000,  jun:500000,  jul:500000,  ago:500000,  total:3900000,  vertical:'Alimentos',     producto:'Point',    eta:'Mayo',       comentario:'Encendida'},
+  {prob:'ALTA',  marca:'Super El Lapacho',   hunter:'Agustín Mac',       mayo:350000,  jun:400000,  jul:400000,  ago:400000,  total:3150000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Mayo',       comentario:'Supermercado, cerrada ganada'},
+  {prob:'ALTA',  marca:'Bremen Motors',      hunter:'Delfina Sipes',     mayo:100000,  jun:200000,  jul:300000,  ago:500000,  total:3100000,  vertical:'Autos',         producto:'QR+Point', eta:'Mayo',       comentario:'Por encender'},
+  {prob:'ALTA',  marca:'Pinturas misioneras',hunter:'Agustín Mac',       mayo:0,       jun:150000,  jul:600000,  ago:600000,  total:3750000,  vertical:'Construcción',  producto:'Point+QR', eta:'Junio',      comentario:'Fábrica de pinturas Misiones'},
+  {prob:'ALTA',  marca:'Red Giro',           hunter:'Julieta Fassi',     mayo:100000,  jun:200000,  jul:300000,  ago:300000,  total:2100000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Mayo',       comentario:''},
+  {prob:'ALTA',  marca:'Casino Neoparana',   hunter:'Agustín Mac',       mayo:0,       jun:200000,  jul:350000,  ago:350000,  total:2300000,  vertical:'Gambling',      producto:'QR+Point', eta:'Junio',      comentario:'Trabado el STE'},
+  {prob:'ALTA',  marca:'Bistecca',           hunter:'Agustín Mac',       mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Junio',      comentario:'Carnicería Rosario'},
+  {prob:'ALTA',  marca:'Casino Victoria',    hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  vertical:'Gambling',      producto:'Point+QR', eta:'Julio',      comentario:'Postergado por sistemas'},
+  {prob:'ALTA',  marca:'Rafeeli Shop',       hunter:'Ornella Di Natale', mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  vertical:'Salud',         producto:'QR+Point', eta:'Mayo',       comentario:''},
+  {prob:'ALTA',  marca:'Durabox',            hunter:'Camila Valansi',    mayo:50000,   jun:250000,  jul:250000,  ago:250000,  total:1800000,  vertical:'Autos',         producto:'QR+Point', eta:'Mayo',       comentario:'Propuesta enviada'},
+  {prob:'ALTA',  marca:'Cafe Registrado',    hunter:'Camila Valansi',    mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Mayo',       comentario:'Encendido'},
+  {prob:'ALTA',  marca:'Panaderia Paracao',  hunter:'Delfina Sipes',     mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Mayo',       comentario:'Propuesta aceptada'},
+  {prob:'ALTA',  marca:'Riccollini',         hunter:'Julieta Fassi',     mayo:150000,  jun:200000,  jul:200000,  ago:200000,  total:1550000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Mayo',       comentario:''},
+  {prob:'ALTA',  marca:'Sofitel Cardales',   hunter:'Ornella Di Natale', mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  vertical:'Turismo',       producto:'QR+Point', eta:'Junio',      comentario:''},
+  {prob:'ALTA',  marca:'Aguas de corrientes',hunter:'Ornella Di Natale', mayo:0,       jun:100000,  jul:300000,  ago:300000,  total:1900000,  vertical:'Utilities',     producto:'QR',       eta:'Junio',      comentario:''},
+  {prob:'ALTA',  marca:'Hoteles Solans',     hunter:'Ornella Di Natale', mayo:0,       jun:150000,  jul:200000,  ago:200000,  total:1350000,  vertical:'Turismo',       producto:'Point+QR', eta:'Junio',      comentario:''},
+  {prob:'ALTA',  marca:'Supertim',           hunter:'Julieta Fassi',     mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:''},
+  {prob:'ALTA',  marca:'Gio Farma',          hunter:'Juan I. Sottile',   mayo:125000,  jun:150000,  jul:200000,  ago:200000,  total:1475000,  vertical:'Salud',         producto:'Point+QR', eta:'Mayo',       comentario:'Encendida'},
+  {prob:'ALTA',  marca:'Bartolito Mayorista',hunter:'Juan I. Sottile',   mayo:125000,  jun:150000,  jul:150000,  ago:150000,  total:1175000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Mayo',       comentario:'Propuesta enviada'},
+  {prob:'ALTA',  marca:'Compañia Nativa',    hunter:'Delfina Sipes',     mayo:0,       jun:100000,  jul:125000,  ago:125000,  total:850000,   vertical:'Home',          producto:'QR+Point', eta:'Junio',      comentario:'Campaña post Hot Sale'},
+  {prob:'ALTA',  marca:'Perfumeria Oliveras',hunter:'Delfina Sipes',     mayo:0,       jun:60000,   jul:100000,  ago:125000,  total:785000,   vertical:'Salud',         producto:'QR+Point', eta:'Junio',      comentario:'Ver tema tag'},
+  {prob:'ALTA',  marca:'Volpato Centro',     hunter:'Ornella Di Natale', mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  vertical:'Electro',       producto:'Point+QR', eta:'Mayo',       comentario:''},
+  {prob:'ALTA',  marca:'NESKA indumentaria', hunter:'Ornella Di Natale', mayo:50000,   jun:150000,  jul:150000,  ago:150000,  total:1100000,  vertical:'Apparel',       producto:'Point+QR', eta:'Mayo',       comentario:''},
+  {prob:'ALTA',  marca:'Caja psicologos PBA',hunter:'Delfina Sipes',     mayo:50000,   jun:100000,  jul:150000,  ago:150000,  total:1050000,  vertical:'Salud',         producto:'Point+QR', eta:'Mayo',       comentario:'Points enviados'},
+  {prob:'ALTA',  marca:'La Mara entret.',    hunter:'Delfina Sipes',     mayo:125000,  jun:125000,  jul:200000,  ago:200000,  total:1150000,  vertical:'Entretenimiento',producto:'Point+QR', eta:'Mayo',       comentario:'Encendida'},
+  {prob:'MEDIA', marca:'SAMSA',              hunter:'Agustín Mac',       mayo:0,       jun:200000,  jul:800000,  ago:800000,  total:5000000,  vertical:'Utilities',     producto:'QR+Point', eta:'Junio',      comentario:'Integración QR Junio'},
+  {prob:'MEDIA', marca:'Showsport',          hunter:'Ornella Di Natale', mayo:0,       jun:0,       jul:300000,  ago:1000000, total:7300000,  vertical:'Apparel',       producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'MEDIA', marca:'El chañar',          hunter:'Agustín Mac',       mayo:0,       jun:200000,  jul:500000,  ago:500000,  total:3200000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Junio',      comentario:'Carnicerías Rosario'},
+  {prob:'MEDIA', marca:'Grupo lorenzo',      hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  vertical:'Electro',       producto:'QR+Point', eta:'Julio',      comentario:'Contrato Payway 2028'},
+  {prob:'MEDIA', marca:'Farmacia Embon',     hunter:'Agustín Mac',       mayo:0,       jun:300000,  jul:400000,  ago:400000,  total:2700000,  vertical:'Salud',         producto:'QR+Point', eta:'Junio',      comentario:'Varios CUITs'},
+  {prob:'MEDIA', marca:'Paladar',            hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Julio',      comentario:'Avanzando propuesta'},
+  {prob:'MEDIA', marca:'Sensei',             hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:500000,  ago:500000,  total:3000000,  vertical:'Home',          producto:'QR+Point', eta:'Julio',      comentario:'Interesado'},
+  {prob:'MEDIA', marca:'Farmacia Miguel L.', hunter:'Agustín Mac',       mayo:0,       jun:200000,  jul:400000,  ago:400000,  total:2600000,  vertical:'Salud',         producto:'QR+Point', eta:'Junio',      comentario:'Muy cerca de cerrar'},
+  {prob:'MEDIA', marca:'Grupo Hermanos',     hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:0,       ago:500000,  total:2500000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Agosto',     comentario:'Gastronomía Iguazú'},
+  {prob:'MEDIA', marca:'Cerámicos Pellegrini',hunter:'Camila Valansi',   mayo:50000,   jun:200000,  jul:200000,  ago:200000,  total:1450000,  vertical:'Home',          producto:'Point+QR', eta:'Mayo',       comentario:'Están interesados'},
+  {prob:'MEDIA', marca:'Corpico',            hunter:'Ornella Di Natale', mayo:0,       jun:200000,  jul:300000,  ago:300000,  total:2000000,  vertical:'Utilities',     producto:'Point',    eta:'Junio',      comentario:''},
+  {prob:'MEDIA', marca:'Orso Bianco',        hunter:'Ornella Di Natale', mayo:0,       jun:100000,  jul:300000,  ago:300000,  total:1900000,  vertical:'Apparel',       producto:'QR',       eta:'Junio',      comentario:''},
+  {prob:'MEDIA', marca:'Farmacia Villegas',  hunter:'Camila Valansi',    mayo:0,       jun:100000,  jul:230000,  ago:230000,  total:1480000,  vertical:'Salud',         producto:'QR+Point', eta:'Junio',      comentario:'Negociando'},
+  {prob:'MEDIA', marca:'Avicola Victoria',   hunter:'Juan I. Sottile',   mayo:0,       jun:200000,  jul:250000,  ago:300000,  total:1950000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Propuesta enviada'},
+  {prob:'MEDIA', marca:'LasChulas',          hunter:'Juan I. Sottile',   mayo:0,       jun:125000,  jul:170000,  ago:185000,  total:1280000,  vertical:'Apparel',       producto:'Point+QR', eta:'Junio',      comentario:'Interesado'},
+  {prob:'MEDIA', marca:'Glow up',            hunter:'Ornella Di Natale', mayo:0,       jun:50000,   jul:300000,  ago:300000,  total:1850000,  vertical:'Salud',         producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'MEDIA', marca:'Pinturerias Shejina',hunter:'Ornella Di Natale', mayo:0,       jun:0,       jul:300000,  ago:300000,  total:1800000,  vertical:'Home',          producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'MEDIA', marca:'Bergese hermanos',   hunter:'Ornella Di Natale', mayo:0,       jun:100000,  jul:150000,  ago:150000,  total:1000000,  vertical:'Construcción',  producto:'Point+QR', eta:'Junio',      comentario:''},
+  {prob:'MEDIA', marca:'Polleria 3r',        hunter:'Agustín Mac',       mayo:0,       jun:150000,  jul:300000,  ago:300000,  total:1950000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Junio',      comentario:'Empresa avícola Corrientes'},
+  {prob:'MEDIA', marca:'Avicam',             hunter:'Juan I. Sottile',   mayo:0,       jun:0,       jul:250000,  ago:300000,  total:1925000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:'Propuesta enviada'},
+  {prob:'MEDIA', marca:'Holy',               hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:0,       ago:350000,  total:1750000,  vertical:'Alimentos',     producto:'QR+Point', eta:'Agosto',     comentario:'Cervecerías Misiones'},
+  {prob:'MEDIA', marca:'Melocoton',          hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:0,       ago:300000,  total:1500000,  vertical:'Apparel',       producto:'QR+Point', eta:'Agosto',     comentario:'Grupo textil'},
+  {prob:'MEDIA', marca:'Sanatorio de la mujer',hunter:'Agustín Mac',     mayo:0,       jun:0,       jul:0,       ago:300000,  total:1500000,  vertical:'Salud',         producto:'Point+QR', eta:'Agosto',     comentario:'Varios sanatorios Rosario'},
+  {prob:'MEDIA', marca:'Tienda Swift',       hunter:'Juan I. Sottile',   mayo:0,       jun:0,       jul:0,       ago:350000,  total:2250000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Agosto',     comentario:'Propuesta enviada'},
+  {prob:'MEDIA', marca:'Minotauro',          hunter:'Camila Valansi',    mayo:0,       jun:100000,  jul:190000,  ago:190000,  total:1240000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Costos Payway bajos'},
+  {prob:'MEDIA', marca:'Concesión Racing-Independiente',hunter:'Camila Valansi',mayo:0,jun:100000,  jul:180000,  ago:180000,  total:1180000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Food Delivery Day'},
+  {prob:'MEDIA', marca:'Municipalidad S. Vicente',hunter:'Camila Valansi',mayo:0,      jun:0,       jul:100000,  ago:180000,  total:1000000,  vertical:'Utilities',     producto:'Point+QR', eta:'Julio',      comentario:'Propuesta enviada'},
+  {prob:'MEDIA', marca:'Autoservicio belgrano',hunter:'Ornella Di Natale',mayo:0,      jun:0,       jul:100000,  ago:250000,  total:1350000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'MEDIA', marca:'Balcarce 54',        hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:250000,  ago:250000,  total:1500000,  vertical:'Construcción',  producto:'QR+Point', eta:'Julio',      comentario:'Sanitarios'},
+  {prob:'MEDIA', marca:'Sigre Procrearte',   hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:600000,   vertical:'Salud',         producto:'QR+Point', eta:'Julio',      comentario:'En vacaciones'},
+  {prob:'MEDIA', marca:'Bodega Septima',     hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:650000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'MEDIA', marca:'Maxi Kiosco Juanse', hunter:'Juan I. Sottile',   mayo:0,       jun:80000,   jul:100000,  ago:125000,  total:805000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Cadena kioscos'},
+  {prob:'MEDIA', marca:'Supermercado Don Gustavo',hunter:'Juan I. Sottile',mayo:80000, jun:100000,  jul:125000,  ago:125000,  total:930000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Mayo',       comentario:'Interesado'},
+  {prob:'MEDIA', marca:'Carnicerias El Exito',hunter:'Juan I. Sottile',  mayo:0,       jun:80000,   jul:100000,  ago:125000,  total:805000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Chaco'},
+  {prob:'MEDIA', marca:'Supermercado OTA',   hunter:'Juan I. Sottile',   mayo:0,       jun:80000,   jul:125000,  ago:125000,  total:830000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Junio',      comentario:'Interesado'},
+  {prob:'MEDIA', marca:'Amarilla Gas',       hunter:'Juan I. Sottile',   mayo:0,       jun:0,       jul:150000,  ago:170000,  total:720000,   vertical:'Utilities',     producto:'Point+QR', eta:'Julio',      comentario:'QR en factura'},
+  {prob:'MEDIA', marca:'Upy Shop',           hunter:'Juan I. Sottile',   mayo:0,       jun:0,       jul:90000,   ago:125000,  total:715000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:'Cadena locales'},
+  {prob:'MEDIA', marca:'Sodecar',            hunter:'Julieta Fassi',     mayo:0,       jun:0,       jul:0,       ago:0,       total:800000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'MEDIA', marca:'Newells old boys',   hunter:'Julieta Fassi',     mayo:0,       jun:0,       jul:0,       ago:0,       total:200000,   vertical:'Entretenimiento',producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'BYD',               hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:900000,  ago:900000,  total:5400000,  vertical:'Autos',         producto:'Point+QR', eta:'Julio',      comentario:'40 locales'},
+  {prob:'BAJA',  marca:'Pandora',           hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:0,       ago:0,       total:6000000,  vertical:'Otros',         producto:'QR+Point', eta:'Octubre',    comentario:'Activación octubre'},
+  {prob:'BAJA',  marca:'Red Sport',         hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  vertical:'Apparel',       producto:'Point+QR', eta:'Julio',      comentario:'12 locales'},
+  {prob:'BAJA',  marca:'Bruno Hermanos',    hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:600000,  ago:600000,  total:3600000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Farmacia Lacarra',  hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:300000,  ago:300000,  total:2500000,  vertical:'Salud',         producto:'QR+Point', eta:'Julio',      comentario:'11 locales'},
+  {prob:'BAJA',  marca:'Heladerias Bahillo',hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1225000,  vertical:'Alimentos',     producto:'Point',    eta:'Junio',      comentario:''},
+  {prob:'BAJA',  marca:'Pannus Panaderia',  hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:675000,   vertical:'Alimentos',     producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Bourlot',           hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:1000000,  vertical:'Home',          producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Jure Accesorios',   hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:200000,  ago:200000,  total:1200000,  vertical:'Autos',         producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Farmacia Oro Verde',hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:600000,   vertical:'Salud',         producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Vinoteca Campos',   hunter:'Delfina Sipes',     mayo:0,       jun:0,       jul:100000,  ago:100000,  total:700000,   vertical:'Alimentos',     producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Supermayorista GEVA',hunter:'Delfina Sipes',    mayo:0,       jun:0,       jul:100000,  ago:100000,  total:650000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Supermercado El Picaflor',hunter:'Delfina Sipes',mayo:0,      jun:0,       jul:100000,  ago:100000,  total:600000,   vertical:'Alimentos',     producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Chuna siempre con vos',hunter:'Delfina Sipes',  mayo:0,       jun:0,       jul:0,       ago:0,       total:1100000,  vertical:'Home',          producto:'QR+Point', eta:'Septiembre', comentario:''},
+  {prob:'BAJA',  marca:'Belgrano Hogar',    hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:250000,  ago:250000,  total:1500000,  vertical:'Electro',       producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Rey del sofa',      hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:250000,  ago:250000,  total:1500000,  vertical:'Home',          producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Maugeri',           hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:250000,  ago:250000,  total:1500000,  vertical:'Autos',         producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Tahona Panaderia',  hunter:'Agustín Mac',       mayo:0,       jun:0,       jul:150000,  ago:150000,  total:900000,   vertical:'Alimentos',     producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'BAV',              hunter:'Juan I. Sottile',    mayo:0,       jun:0,       jul:150000,  ago:175000,  total:1275000,  vertical:'Otros',         producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Servi SRL',        hunter:'Juan I. Sottile',    mayo:0,       jun:0,       jul:125000,  ago:125000,  total:750000,   vertical:'Otros',         producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'CDIMEX SA',        hunter:'Juan I. Sottile',    mayo:0,       jun:80000,   jul:125000,  ago:125000,  total:830000,   vertical:'Otros',         producto:'Point+QR', eta:'Junio',      comentario:''},
+  {prob:'BAJA',  marca:'Baby Pop',         hunter:'Juan I. Sottile',    mayo:0,       jun:0,       jul:80000,   ago:100000,  total:680000,   vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Supermercado Arco Iris',hunter:'Juan I. Sottile',mayo:0,      jun:0,       jul:200000,  ago:250000,  total:1650000,  vertical:'Alimentos',     producto:'Point+QR', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Cruci',            hunter:'Ornella Di Natale',  mayo:0,       jun:0,       jul:200000,  ago:200000,  total:1200000,  vertical:'Entretenimiento',producto:'QR+Point', eta:'Julio',      comentario:''},
+  {prob:'BAJA',  marca:'Parodi',           hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:1500000,  vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Frigorifico mimen',hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:1000000,  vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'La elena',         hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:600000,   vertical:'Home',          producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Frigorifico Recreo',hunter:'Julieta Fassi',     mayo:0,       jun:0,       jul:0,       ago:0,       total:600000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Frigorifico La florida',hunter:'Julieta Fassi', mayo:0,       jun:0,       jul:0,       ago:0,       total:600000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Super Cristian',   hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:600000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'soy lola',         hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:600000,   vertical:'Salud',         producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Pura raza',        hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:450000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'La cubana',        hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:400000,   vertical:'Otros',         producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'El ladrillero',    hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:400000,   vertical:'Home',          producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Tomy librerias',   hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:400000,   vertical:'Otros',         producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Vonderthusen',     hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:400000,   vertical:'Apparel',       producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Dulcilandia',      hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:350000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Forrajes del oeste',hunter:'Julieta Fassi',     mayo:0,       jun:0,       jul:0,       ago:0,       total:250000,   vertical:'Otros',         producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Carnes del sur',   hunter:'Julieta Fassi',      mayo:0,       jun:0,       jul:0,       ago:0,       total:250000,   vertical:'Alimentos',     producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'El fenomeno+Finisterra',hunter:'Julieta Fassi', mayo:0,       jun:0,       jul:0,       ago:0,       total:200000,   vertical:'Home',          producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Construcciones del oeste',hunter:'Julieta Fassi',mayo:0,      jun:0,       jul:0,       ago:0,       total:200000,   vertical:'Home',          producto:'QR+Point', eta:'TBD',        comentario:''},
+  {prob:'BAJA',  marca:'Empresa Energía SF',hunter:'Julieta Fassi',     mayo:0,       jun:0,       jul:0,       ago:0,       total:0,        vertical:'Utilities',     producto:'QR',       eta:'TBD',        comentario:'Revisar'}
 ];
-const HUNTERS = {
-  "Agustín Mac":       {color:"#1A9641", mayo:2525000, jun:6950000,  jul:12250000, ago:12950000},
-  "Ornella Di Natale": {color:"#2471A3", mayo:300000,  jun:1850000,  jul:3700000,  ago:4450000},
-  "Delfina Sipes":     {color:"#CA6F1E", mayo:425000,  jun:785000,   jul:2475000,  ago:2600000},
-  "Julieta Fassi":     {color:"#1A9641", mayo:300000,  jun:600000,   jul:700000,   ago:700000},
-  "Camila Valansi":    {color:"#8E44AD", mayo:200000,  jun:850000,   jul:1070000,  ago:1120000},
-  "Juan I. Sottile":   {color:"#C0392B", mayo:250000,  jun:905000,   jul:1765000,  ago:2305000},
-};
 
-// ── HELPERS ──
-const fmt = n => n>=1e6 ? `$${(n/1e6).toFixed(2)} Mn` : n>=1e3 ? `$${(n/1e3).toFixed(0)} K` : `$${n}`;
-const pc  = (v,p) => p>0 ? Math.round(v/p*100) : 0;
-const pcol= v => v>=100?'var(--alta)':v>=80?'var(--media)':'var(--baja)';
-const probCls = p => p==='ALTA'?'prob-alta':p==='MEDIA'?'prob-media':'prob-baja';
+// ─── HELPERS ─────────────────────────────────────────────────────────────────
+const fmtM  = n => n >= 1e6 ? '$' + (n/1e6).toFixed(2) + ' Mn' : n >= 1e3 ? '$' + (n/1e3).toFixed(0) + ' K' : '$' + n;
+const pc    = (v,p) => p > 0 ? Math.round(v/p*100) : 0;
+const pCol  = v => v >= 100 ? '#1E8449' : v >= 80 ? '#9A7D0A' : '#C0392B';
+const pBg   = v => v >= 100 ? '#D5F5E3' : v >= 80 ? '#FEF9E7' : '#FDEDEC';
+const pbCls = p => p === 'ALTA' ? 'pb pb-alta' : p === 'MEDIA' ? 'pb pb-media' : 'pb pb-baja';
+const probColor = p => p === 'ALTA' ? 'var(--alta)' : p === 'MEDIA' ? 'var(--media)' : 'var(--baja)';
 const charts = {};
-const kill = id => { if(charts[id]){charts[id].destroy();delete charts[id];} };
+const killChart = id => { if (charts[id]) { charts[id].destroy(); delete charts[id]; } };
 
-// ── HERO STATS ──
-const totalPipe = BRANDS.reduce((a,b)=>a+b.total,0);
-const altaCount = [...new Set(BRANDS.filter(b=>b.prob==='ALTA').map(b=>b.marca))].length;
-document.getElementById('hs-pipe').textContent = fmt(totalPipe);
-document.getElementById('hs-alta').textContent = altaCount;
-document.getElementById('hs-total').textContent = [...new Set(BRANDS.map(b=>b.marca))].size;
+// ─── HERO STATS ───────────────────────────────────────────────────────────────
+const totalPipe = BRANDS.reduce((a,b) => a + b.total, 0);
+const altaSet   = new Set(BRANDS.filter(b => b.prob === 'ALTA').map(b => b.marca));
+const allSet    = new Set(BRANDS.map(b => b.marca));
+document.getElementById('hs-pipe').textContent  = fmtM(totalPipe);
+document.getElementById('hs-alta').textContent  = altaSet.size;
+document.getElementById('hs-total').textContent = allSet.size;
 
-// ══════════════════════════
-// RESUMEN PAGE
-// ══════════════════════════
+// ─── BUILD RESUMEN ────────────────────────────────────────────────────────────
 function buildResumen() {
   const scenarios = [
-    {label:'Solo ALTA',         color:'var(--alta)',  desc:'Marcas con alta probabilidad de cierre', data:FORECAST.ALTA},
-    {label:'ALTA + MEDIA',      color:'var(--media)', desc:'Escenario base realista',                data:FORECAST.ALTA_MED},
-    {label:'ALTA + MEDIA + BAJA',color:'var(--baja)', desc:'Máximo potencial del pipeline',         data:FORECAST.ALTA_MED_BAJA},
+    {label:'Solo ALTA',       color:'var(--alta)',  desc:'Alta probabilidad de cierre', data:FCST.ALTA},
+    {label:'ALTA + MEDIA',    color:'var(--media)', desc:'Escenario base realista',     data:FCST.MEDIA},
+    {label:'ALTA+MEDIA+BAJA', color:'var(--baja)',  desc:'Máximo potencial pipeline',   data:FCST.BAJA}
   ];
-
-  let html = `<div class="sec-head">
-    <div class="sec-bar" style="background:var(--teal)"></div>
-    <div><h2>Forecast Total · Mayo – Agosto 2026</h2><p>3 escenarios vs Plan Anual</p></div>
-  </div>
-  <div class="scenario-grid">
-    ${scenarios.map(sc=>`
-      <div class="sc-card">
-        <div class="sc-card-head" style="border-top:4px solid ${sc.color}">
-          <div class="sc-card-title" style="color:${sc.color}">${sc.label}</div>
-          <div class="sc-card-desc">${sc.desc}</div>
-        </div>
-        ${MONTHS_F.map(m=>{
-          const v = sc.data[m], p = PLAN[m], pv = pc(v,p);
-          const fc = pv>=100?'#1A9641':pv>=80?'#9A7D0A':'#C0392B';
-          const fw = Math.min(pv/100,1.5)*100;
-          return `<div class="sc-month">
-            <div class="sc-month-name">${m}</div>
-            <div class="sc-month-val" style="color:${sc.color}">${fmt(v)}</div>
-            <div class="sc-bar-track"><div class="sc-bar-fill" style="width:${Math.min(fw,100)}%;background:${sc.color}"></div></div>
-            <div class="sc-pct"><span style="color:${fc};font-weight:700">${pv}% del plan</span><span style="color:var(--slate)">Plan: ${fmt(p)}</span></div>
-          </div>`;
-        }).join('')}
-      </div>`).join('')}
-  </div>
-
-  <div class="chart-row">
-    <div class="chart-card">
-      <div class="chart-title">📊 Forecast Acumulado vs Plan Anual (Mn USD)</div>
-      <div class="chart-wrap"><canvas id="c-main"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">📈 % Cumplimiento vs Plan por Escenario</div>
-      <div class="chart-wrap"><canvas id="c-pct"></canvas></div>
-    </div>
-  </div>`;
-
+  let html = `<div class="sec-head"><div class="sec-bar" style="background:var(--teal)"></div>
+    <div><h2>Forecast Total · Mayo – Agosto 2026</h2><p>3 escenarios vs Plan Anual</p></div></div>
+    <div class="sc-grid">`;
+  scenarios.forEach(sc => {
+    html += `<div class="sc-card"><div class="sc-head" style="border-top:4px solid ${sc.color}">
+      <div class="sc-title" style="color:${sc.color}">${sc.label}</div>
+      <div class="sc-desc">${sc.desc}</div></div>`;
+    MONTHS.forEach(m => {
+      const v = sc.data[m], p = PLAN[m], pv = pc(v,p);
+      const fc = pCol(pv), fw = Math.min(pv, 150);
+      html += `<div class="sc-month"><div class="sc-mname">${m}</div>
+        <div class="sc-mval" style="color:${sc.color}">${fmtM(v)}</div>
+        <div class="sc-bar"><div class="sc-bar-fill" style="width:${Math.min(fw,100)}%;background:${sc.color}"></div></div>
+        <div class="sc-pct"><span style="color:${fc};font-weight:700">${pv}% del plan</span>
+        <span style="color:var(--slate)">Plan: ${fmtM(p)}</span></div></div>`;
+    });
+    html += '</div>';
+  });
+  html += '</div><div class="chart-row">';
+  html += `<div class="chart-card"><div class="chart-title">📊 Forecast Acumulado vs Plan Anual (Mn USD)</div>
+    <div class="chart-wrap"><canvas id="c-main"></canvas></div></div>`;
+  html += `<div class="chart-card"><div class="chart-title">📈 % Cumplimiento vs Plan por Escenario</div>
+    <div class="chart-wrap"><canvas id="c-pct"></canvas></div></div></div>`;
   document.getElementById('page-resumen').innerHTML = html;
-
-  setTimeout(()=>{
-    const baseOpts = {responsive:true,maintainAspectRatio:false,
+  setTimeout(() => {
+    const base = {responsive:true, maintainAspectRatio:false,
       plugins:{legend:{position:'bottom',labels:{boxWidth:10,font:{size:10}}}},
       scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10}}}}};
-
-    kill('c-main');
-    charts['c-main'] = new Chart(document.getElementById('c-main'),{
-      type:'bar',
-      data:{labels:MONTHS_F,datasets:[
-        {label:'Solo ALTA',    data:MONTHS_F.map(m=>(FORECAST.ALTA[m]/1e6).toFixed(2)),     backgroundColor:'#1A964166',borderColor:'#1A9641',borderWidth:1,borderRadius:3},
-        {label:'+MEDIA',       data:MONTHS_F.map(m=>(FORECAST.ALTA_MED[m]/1e6).toFixed(2)), backgroundColor:'#D4AC0D66',borderColor:'#D4AC0D',borderWidth:1,borderRadius:3},
-        {label:'+BAJA',        data:MONTHS_F.map(m=>(FORECAST.ALTA_MED_BAJA[m]/1e6).toFixed(2)),backgroundColor:'#C0392B66',borderColor:'#C0392B',borderWidth:1,borderRadius:3},
-        {label:'Plan Anual',   data:MONTHS_F.map(m=>(PLAN[m]/1e6).toFixed(2)),              type:'line',borderColor:'#2471A3',borderWidth:2.5,pointBackgroundColor:'#2471A3',fill:false,tension:.3},
-      ]},options:{...baseOpts,scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>`${v} Mn`}}}}
-    });
-
-    kill('c-pct');
-    charts['c-pct'] = new Chart(document.getElementById('c-pct'),{
-      type:'line',
-      data:{labels:MONTHS_F,datasets:[
-        {label:'Solo ALTA',data:MONTHS_F.map(m=>pc(FORECAST.ALTA[m],PLAN[m])),borderColor:'#1A9641',borderWidth:2,pointBackgroundColor:'#1A9641',fill:false,tension:.3},
-        {label:'+MEDIA',   data:MONTHS_F.map(m=>pc(FORECAST.ALTA_MED[m],PLAN[m])),borderColor:'#D4AC0D',borderWidth:2,pointBackgroundColor:'#D4AC0D',fill:false,tension:.3},
-        {label:'+BAJA',    data:MONTHS_F.map(m=>pc(FORECAST.ALTA_MED_BAJA[m],PLAN[m])),borderColor:'#C0392B',borderWidth:2,pointBackgroundColor:'#C0392B',fill:false,tension:.3},
-      ]},
-      options:{...baseOpts,
-        scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>`${v}%`}}},
-        plugins:{...baseOpts.plugins,
-          annotation:{annotations:{line100:{type:'line',yMin:100,yMax:100,borderColor:'rgba(0,0,0,.2)',borderWidth:1,borderDash:[5,3]}}}
-        }
-      }
-    });
-  },30);
+    killChart('c-main');
+    charts['c-main'] = new Chart(document.getElementById('c-main'), {type:'bar', data:{labels:MONTHS, datasets:[
+      {label:'Solo ALTA',  data:MONTHS.map(m=>+(FCST.ALTA[m]/1e6).toFixed(2)),  backgroundColor:'#1A964155',borderColor:'#1A9641',borderWidth:1.5,borderRadius:3},
+      {label:'+MEDIA',     data:MONTHS.map(m=>+(FCST.MEDIA[m]/1e6).toFixed(2)), backgroundColor:'#D4AC0D55',borderColor:'#D4AC0D',borderWidth:1.5,borderRadius:3},
+      {label:'+BAJA',      data:MONTHS.map(m=>+(FCST.BAJA[m]/1e6).toFixed(2)),  backgroundColor:'#C0392B55',borderColor:'#C0392B',borderWidth:1.5,borderRadius:3},
+      {label:'Plan Anual', data:MONTHS.map(m=>+(PLAN[m]/1e6).toFixed(2)), type:'line', borderColor:'#2471A3',borderWidth:2.5,pointBackgroundColor:'#2471A3',fill:false,tension:.3}
+    ]}, options:{...base, scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>v+' Mn'}}}}});
+    killChart('c-pct');
+    charts['c-pct'] = new Chart(document.getElementById('c-pct'), {type:'line', data:{labels:MONTHS, datasets:[
+      {label:'Solo ALTA', data:MONTHS.map(m=>pc(FCST.ALTA[m],PLAN[m])),  borderColor:'#1A9641',borderWidth:2,pointBackgroundColor:'#1A9641',fill:false,tension:.3},
+      {label:'+MEDIA',    data:MONTHS.map(m=>pc(FCST.MEDIA[m],PLAN[m])), borderColor:'#D4AC0D',borderWidth:2,pointBackgroundColor:'#D4AC0D',fill:false,tension:.3},
+      {label:'+BAJA',     data:MONTHS.map(m=>pc(FCST.BAJA[m],PLAN[m])),  borderColor:'#C0392B',borderWidth:2,pointBackgroundColor:'#C0392B',fill:false,tension:.3}
+    ]}, options:{...base, scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>v+'%'}}}}});
+  }, 30);
 }
 
-// ══════════════════════════
-// FORECAST PAGE (top brands)
-// ══════════════════════════
+// ─── BUILD FORECAST ───────────────────────────────────────────────────────────
 function buildForecast() {
-  const scored = BRANDS.map(b=>({...b,score:b.mayo+b.jun+b.jul+b.ago}));
-  const deduped = [];
   const seen = new Set();
-  for(const b of scored.sort((a,c)=>c.score-a.score)){
-    if(!seen.has(b.marca)){deduped.push(b);seen.add(b.marca);}
-  }
-
-  const html = `<div class="sec-head">
-    <div class="sec-bar" style="background:#2471A3"></div>
-    <div><h2>Top Marcas del Pipeline</h2><p>Ordenadas por TPV Mayo–Agosto · todas las probabilidades</p></div>
-  </div>
-  <div class="brands-wrap">
-    <table class="brands-table">
-      <thead><tr>
-        <th>Prob.</th><th>Marca</th><th>Hunter</th><th>Zona</th><th>Vertical</th>
-        <th style="text-align:center">Producto</th>
-        <th style="text-align:center">Mayo</th><th style="text-align:center">Junio</th>
-        <th style="text-align:center">Julio</th><th style="text-align:center">Agosto</th>
-        <th style="text-align:center">Total Anual</th>
-      </tr></thead>
-      <tbody>
-        ${deduped.map(b=>`<tr>
-          <td><span class="prob-badge ${probCls(b.prob)}">${b.prob}</span></td>
-          <td><strong>${b.marca}</strong></td>
-          <td style="color:var(--slate)">${b.hunter}</td>
-          <td style="color:var(--slate);font-size:10px">${b.zona}</td>
-          <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
-          <td style="text-align:center;font-size:10px">${b.producto||'—'}</td>
-          ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?'var(--dark)':'var(--light)'}${v>=1e6?';font-weight:700':''}">${v>0?fmt(v):'—'}</td>`).join('')}
-          <td style="text-align:center;font-weight:700;color:${b.prob==='ALTA'?'var(--alta)':b.prob==='MEDIA'?'var(--media)':'var(--baja)'}">${fmt(b.total)}</td>
-        </tr>`).join('')}
-      </tbody>
-    </table>
-  </div>`;
-
+  const deduped = BRANDS.filter(b => { if (seen.has(b.marca)) return false; seen.add(b.marca); return true; })
+    .sort((a,b) => (b.mayo+b.jun+b.jul+b.ago) - (a.mayo+a.jun+a.jul+a.ago));
+  let html = `<div class="sec-head"><div class="sec-bar" style="background:#2471A3"></div>
+    <div><h2>Top Marcas del Pipeline</h2><p>Ordenadas por TPV Mayo–Agosto · todas las probabilidades</p></div></div>
+    <div class="tbl-wrap"><table class="btable"><thead><tr>
+      <th>Prob.</th><th>Marca</th><th>Hunter</th><th>Vertical</th>
+      <th style="text-align:center">Producto</th>
+      <th style="text-align:center">Mayo</th><th style="text-align:center">Junio</th>
+      <th style="text-align:center">Julio</th><th style="text-align:center">Agosto</th>
+      <th style="text-align:center">Total Anual</th>
+    </tr></thead><tbody>`;
+  deduped.forEach(b => {
+    const pc2 = pbCls(b.prob), cc = probColor(b.prob);
+    html += `<tr>
+      <td><span class="${pc2}">${b.prob}</span></td>
+      <td><strong>${b.marca}</strong></td>
+      <td style="color:var(--slate)">${b.hunter}</td>
+      <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
+      <td style="text-align:center"><span class="prod-chip">${b.producto}</span></td>
+      ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?'var(--dark)':'var(--light)'}">${v>0?fmtM(v):'—'}</td>`).join('')}
+      <td style="text-align:center;font-weight:700;color:${cc}">${fmtM(b.total)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table></div>';
   document.getElementById('page-forecast').innerHTML = html;
 }
 
-// ══════════════════════════
-// HUNTERS PAGE
-// ══════════════════════════
+// ─── BUILD HUNTERS OVERVIEW ───────────────────────────────────────────────────
 function buildHunters() {
-  const entries = Object.entries(HUNTERS);
-
-  const html = `<div class="sec-head">
-    <div class="sec-bar" style="background:#8E44AD"></div>
-    <div><h2>Forecast por Hunter</h2><p>Pipeline Mayo – Agosto 2026 · todas las probabilidades</p></div>
-  </div>
-  <div class="hunter-grid">
-    ${entries.map(([name,d],i)=>{
-      const total = d.mayo+d.jun+d.jul+d.ago;
-      const maxV  = Math.max(d.mayo,d.jun,d.jul,d.ago,1);
-      const init  = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
-      const brandCount = [...new Set(BRANDS.filter(b=>b.hunter===name||b.hunter.startsWith(name.split(' ')[0])).map(b=>b.marca))].length;
-      return `<div class="h-card" style="border-top:4px solid ${d.color}">
-        <div class="h-card-head">
-          <div class="h-avatar" style="background:${d.color}">${init}</div>
-          <div>
-            <div class="h-name">${name}</div>
-            <div class="h-sub">Pipeline May-Ago: ${fmt(total)} · ${brandCount} marcas</div>
-          </div>
-        </div>
-        <div class="h-bars">
-          ${MONTHS_F.map((m,mi)=>{
-            const mv = d[MONTHS_K[mi]]||0;
-            const fw = mv>0?Math.max(mv/maxV*100,2):0;
-            return `<div class="h-bar-row">
-              <div class="h-bar-label">${m.slice(0,3)}</div>
-              <div class="h-bar-track"><div class="h-bar-fill" style="width:${fw}%;background:${d.color}"></div></div>
-              <div class="h-bar-val" style="color:${mv>0?d.color:'var(--light)'}">${mv>0?fmt(mv):'—'}</div>
-            </div>`;
-          }).join('')}
-        </div>
+  const entries = Object.entries(HUNTERS_CHART);
+  const MK = ['mayo','jun','jul','ago'];
+  let html = `<div class="sec-head"><div class="sec-bar" style="background:#8E44AD"></div>
+    <div><h2>Forecast por Hunter</h2><p>Pipeline Mayo – Agosto 2026</p></div></div>
+    <div class="h-grid">`;
+  entries.forEach(([name,d],i) => {
+    const total = d.mayo+d.jun+d.jul+d.ago;
+    const maxV  = Math.max(d.mayo,d.jun,d.jul,d.ago,1);
+    const init  = name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+    const bc    = BRANDS.filter(b => b.hunter === name || b.hunter.startsWith(name.split(' ')[0]));
+    html += `<div class="h-card" style="border-top:4px solid ${d.color}">
+      <div class="h-head">
+        <div class="h-av" style="background:${d.color}">${init}</div>
+        <div><div class="h-name">${name}</div>
+        <div class="h-sub">Pipeline May-Ago: ${fmtM(total)} · ${bc.length} marcas</div></div>
+      </div><div class="h-bars">`;
+    MONTHS.forEach((m,mi) => {
+      const mv = d[MK[mi]] || 0;
+      const fw = mv > 0 ? Math.max(mv/maxV*100, 2) : 0;
+      html += `<div class="h-br">
+        <div class="h-bl">${m.slice(0,3)}</div>
+        <div class="h-bt"><div class="h-bf" style="width:${fw}%;background:${d.color}"></div></div>
+        <div class="h-bv" style="color:${mv>0?d.color:'var(--light)'}">${mv>0?fmtM(mv):'—'}</div>
       </div>`;
-    }).join('')}
-  </div>
-
-  <div class="chart-row">
-    <div class="chart-card">
-      <div class="chart-title">📊 Pipeline Total por Hunter (May-Ago)</div>
-      <div class="chart-wrap"><canvas id="c-hunter-bar"></canvas></div>
-    </div>
-    <div class="chart-card">
-      <div class="chart-title">🥧 Distribución del Pipeline por Hunter</div>
-      <div class="chart-wrap"><canvas id="c-hunter-pie"></canvas></div>
-    </div>
-  </div>`;
-
+    });
+    html += '</div></div>';
+  });
+  html += '</div><div class="chart-row">';
+  html += `<div class="chart-card"><div class="chart-title">📊 Pipeline Total por Hunter (May-Ago)</div>
+    <div class="chart-wrap"><canvas id="c-hbar"></canvas></div></div>`;
+  html += `<div class="chart-card"><div class="chart-title">🥧 Distribución del Pipeline</div>
+    <div class="chart-wrap"><canvas id="c-hpie"></canvas></div></div></div>`;
   document.getElementById('page-hunters').innerHTML = html;
-
-  setTimeout(()=>{
-    const names = Object.keys(HUNTERS);
-    const totals = names.map(n=>((HUNTERS[n].mayo+HUNTERS[n].jun+HUNTERS[n].jul+HUNTERS[n].ago)/1e6).toFixed(2));
-    const colors = names.map(n=>HUNTERS[n].color);
-
-    kill('c-hunter-bar');
-    charts['c-hunter-bar'] = new Chart(document.getElementById('c-hunter-bar'),{
-      type:'bar',
-      data:{labels:names.map(n=>n.split(' ')[0]),datasets:[{
-        label:'TPV May-Ago (Mn)',data:totals,
-        backgroundColor:colors.map(c=>c+'99'),borderColor:colors,borderWidth:1.5,borderRadius:4
-      }]},
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{display:false}},
-        scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>`${v} Mn`}}}}
-    });
-
-    kill('c-hunter-pie');
-    charts['c-hunter-pie'] = new Chart(document.getElementById('c-hunter-pie'),{
-      type:'doughnut',
-      data:{labels:names.map(n=>n.split(' ')[0]),datasets:[{data:totals,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]},
-      options:{responsive:true,maintainAspectRatio:false,
-        plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10}}}}}
-    });
-  },30);
+  setTimeout(() => {
+    const names  = entries.map(([n]) => n.split(' ')[0]);
+    const totals = entries.map(([,d]) => +((d.mayo+d.jun+d.jul+d.ago)/1e6).toFixed(2));
+    const colors = entries.map(([,d]) => d.color);
+    killChart('c-hbar');
+    charts['c-hbar'] = new Chart(document.getElementById('c-hbar'), {type:'bar',
+      data:{labels:names,datasets:[{label:'TPV May-Ago (Mn)',data:totals,backgroundColor:colors.map(c=>c+'99'),borderColor:colors,borderWidth:1.5,borderRadius:4}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},
+        scales:{x:{grid:{display:false},ticks:{font:{size:10}}},y:{grid:{color:'#EEF0F2'},ticks:{font:{size:10},callback:v=>v+' Mn'}}}}});
+    killChart('c-hpie');
+    charts['c-hpie'] = new Chart(document.getElementById('c-hpie'), {type:'doughnut',
+      data:{labels:names,datasets:[{data:totals,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]},
+      options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10}}}}}});
+  }, 30);
 }
 
-// ══════════════════════════
-// PIPELINE DETAIL PAGE
-// ══════════════════════════
+// ─── BUILD PIPELINE DETAIL ────────────────────────────────────────────────────
 function buildPipeline() {
-  const groups = ['ALTA','MEDIA','BAJA'];
-  const gcols  = {'ALTA':'#0A3622','MEDIA':'#7D6608','BAJA':'#7B241C'};
-  const gbg    = {'ALTA':'#D5F5E3','MEDIA':'#FEF9E7','BAJA':'#FDEDEC'};
-  const gfc    = {'ALTA':'#1A9641','MEDIA':'#9A7D0A','BAJA':'#C0392B'};
-
-  let html = `<div class="sec-head">
-    <div class="sec-bar" style="background:#0D1B2A"></div>
-    <div><h2>Pipeline Completo por Probabilidad</h2><p>Detalle de todas las marcas · Mayo – Agosto 2026</p></div>
-  </div>`;
-
-  groups.forEach(prob=>{
-    const grpBrands = BRANDS.filter(b=>b.prob===prob);
-    const deduped = [];
-    const seen = new Set();
-    for(const b of grpBrands){if(!seen.has(b.marca)){deduped.push(b);seen.add(b.marca);}}
-    const grpTotal = deduped.reduce((a,b)=>a+b.mayo+b.jun+b.jul+b.ago,0);
-
-    html += `<div class="prob-section">
-      <div class="prob-header" style="background:${gcols[prob]}">
-        <span>${prob}  ·  ${deduped.length} marcas</span>
-        <span>TPV May-Ago: ${fmt(grpTotal)}</span>
+  const gcols = {ALTA:'#0A3622',MEDIA:'#7D6608',BAJA:'#7B241C'};
+  const gbg   = {ALTA:'#D5F5E3',MEDIA:'#FEF9E7',BAJA:'#FDEDEC'};
+  const gfc   = {ALTA:'#1A9641',MEDIA:'#9A7D0A',BAJA:'#C0392B'};
+  let html = `<div class="sec-head"><div class="sec-bar" style="background:var(--navy)"></div>
+    <div><h2>Pipeline Completo por Probabilidad</h2><p>Todas las marcas · Mayo – Agosto 2026</p></div></div>`;
+  ['ALTA','MEDIA','BAJA'].forEach(prob => {
+    const grp = [];
+    const seen2 = new Set();
+    BRANDS.filter(b => b.prob === prob).forEach(b => { if (!seen2.has(b.marca)) { grp.push(b); seen2.add(b.marca); } });
+    const tot = grp.reduce((a,b) => a + b.mayo + b.jun + b.jul + b.ago, 0);
+    html += `<div class="prob-sec">
+      <div class="prob-hd" style="background:${gcols[prob]}">
+        <span>${prob} · ${grp.length} marcas</span><span>TPV May-Ago: ${fmtM(tot)}</span>
       </div>
       <div style="overflow-x:auto">
-      <table class="prob-table" style="background:#fff;border:1px solid #EEF0F2;border-top:none">
+      <table class="prob-tbl">
         <thead><tr style="background:${gbg[prob]}">
           <th style="text-align:left">Marca</th><th style="text-align:left">Hunter</th>
-          <th style="text-align:left">Zona</th><th style="text-align:left">Vertical</th>
-          <th style="text-align:center">Producto</th>
+          <th style="text-align:left">Vertical</th><th style="text-align:center">Producto</th>
+          <th style="text-align:center">ETA</th>
           <th style="text-align:center">Mayo</th><th style="text-align:center">Jun</th>
           <th style="text-align:center">Jul</th><th style="text-align:center">Ago</th>
           <th style="text-align:center">Total Anual</th>
           <th style="text-align:left">Comentario</th>
-        </tr></thead>
-        <tbody>
-          ${deduped.map(b=>`<tr>
-            <td><strong>${b.marca}</strong></td>
-            <td style="color:var(--slate)">${b.hunter}</td>
-            <td style="font-size:10px;color:var(--slate)">${b.zona}</td>
-            <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
-            <td style="text-align:center;font-size:10px;font-weight:600">${b.producto||'—'}</td>
-            ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?gfc[prob]:'var(--light)'}">${v>0?fmt(v):'—'}</td>`).join('')}
-            <td style="text-align:center;font-weight:700;color:${gfc[prob]}">${fmt(b.total)}</td>
-            <td class="comment">${b.comentario||'—'}</td>
-          </tr>`).join('')}
-        </tbody>
-      </table>
-      </div>
-    </div>`;
+        </tr></thead><tbody>`;
+    grp.forEach(b => {
+      html += `<tr>
+        <td><strong>${b.marca}</strong></td>
+        <td style="color:var(--slate)">${b.hunter}</td>
+        <td style="font-size:10px;color:var(--slate)">${b.vertical}</td>
+        <td style="text-align:center"><span class="prod-chip">${b.producto}</span></td>
+        <td style="text-align:center;font-size:11px;color:var(--slate)">${b.eta}</td>
+        ${[b.mayo,b.jun,b.jul,b.ago].map(v=>`<td style="text-align:center;color:${v>0?gfc[prob]:'var(--light)'}">${v>0?fmtM(v):'—'}</td>`).join('')}
+        <td style="text-align:center;font-weight:700;color:${gfc[prob]}">${fmtM(b.total)}</td>
+        <td class="cmt">${b.comentario||'—'}</td>
+      </tr>`;
+    });
+    html += '</tbody></table></div></div>';
   });
-
   document.getElementById('page-pipeline').innerHTML = html;
 }
 
-// ── ROUTING ──
-const built = {};
-const HUNTER_PAGES = {
-  'h-agustin': {
-    name:'Agustín Mac', color:'#1A9641', seniority:'Sr',
-    brands:[
-    {marca:'Megatone',vertical:'Home',producto:'QR',eta:'Mayo',prob:'ALTA',tpv:2500000},
-    {marca:'Pandora',vertical:'Otros',producto:'QR+Point',eta:'Octubre',prob:'BAJA',tpv:2000000},
-    {marca:'BYD',vertical:'Autos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:900000},
-    {marca:'SAMSA',vertical:'Utilities',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:800000},
-    {marca:'Red Sport',vertical:'Apparel',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:800000},
-    {marca:'Casino Victoria',vertical:'Gambling',producto:'Point+QR',eta:'Julio',prob:'ALTA',tpv:600000},
-    {marca:'Bruno Hermanos',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:600000},
-    {marca:'Grupo lorenzo',vertical:'Electro',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:600000},
-    {marca:'El chañar',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:500000},
-    {marca:'Tyna',vertical:'Alimentos',producto:'Point',eta:'Mayo',prob:'ALTA',tpv:500000},
-    {marca:'Paladar',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:500000},
-    {marca:'Sensei',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:500000},
-    {marca:'Grupo Hermanos',vertical:'Alimentos',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:500000},
-    {marca:'Farmacia Embon',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:400000},
-    {marca:'Farmacia Miguel Lanus',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:400000},
-    {marca:'Super El Lapacho',vertical:'Alimentos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:400000},
-    {marca:'Polleria 3r',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:350000},
-    {marca:'Holy',vertical:'Alimentos',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:350000},
-    {marca:'Pinturas misioneras',vertical:'Construcción',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:300000},
-    {marca:'Casino Neoparana',vertical:'Gambling',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
-    {marca:'Bistecca',vertical:'Alimentos',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
-    {marca:'Melocoton',vertical:'Apparel',producto:'QR+Point',eta:'Agosto',prob:'MEDIA',tpv:300000},
-    {marca:'Sanatorio de la mujer',vertical:'Salud',producto:'Point+QR',eta:'Agosto',prob:'MEDIA',tpv:300000},
-    {marca:'Balcarce 54',vertical:'Construcción',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:250000},
-    {marca:'Belgrano Hogar',vertical:'Electro',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
-    {marca:'Rey del sofa',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
-    {marca:'Maugeri',vertical:'Autos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
-    {marca:'Tahona Panaderia',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000}
-    ]
-  },
-  'h-ornella': {
-    name:'Ornella Di Natale', color:'#2471A3', seniority:'Ssr',
-    brands:[
-    {marca:'Showsport',vertical:'Apparel',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:1500000},
-    {marca:'Sofitel Cardales',vertical:'Turismo',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:300000},
-    {marca:'Aguas de corrientes (acsa)',vertical:'Utilities',producto:'QR',eta:'Junio',prob:'ALTA',tpv:300000},
-    {marca:'Corpico',vertical:'Utilities',producto:'Point',eta:'Junio',prob:'MEDIA',tpv:300000},
-    {marca:'Orso Bianco',vertical:'Apparel',producto:'QR',eta:'Junio',prob:'MEDIA',tpv:300000},
-    {marca:'Glow up',vertical:'Salud',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:300000},
-    {marca:'Pinturerias Shejina',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'MEDIA',tpv:300000},
-    {marca:'Rafeeli Shop',vertical:'Salud',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:300000},
-    {marca:'Autoservicio belgrano',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:250000},
-    {marca:'Hoteles Solans',vertical:'Turismo',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:200000},
-    {marca:'Cruci',vertical:'Entretenimiento',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:200000},
-    {marca:'Bergese hermanos',vertical:'Construcción',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:150000},
-    {marca:'Volpato Centro',vertical:'Electro',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
-    {marca:'NESKA indumentaria',vertical:'Apparel',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000}
-    ]
-  },
-  'h-delfina': {
-    name:'Delfina Sipes', color:'#CA6F1E', seniority:'Jr',
-    brands:[
-    {marca:'Farmacia Lacarra',vertical:'Salud',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:700000},
-    {marca:'Bremen Motors',vertical:'Autos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:500000},
-    {marca:'Chuna siempre con vos',vertical:'Home',producto:'QR+Point',eta:'Septiembre',prob:'BAJA',tpv:500000},
-    {marca:'Heladerias Bahillo',vertical:'Alimentos',producto:'Point',eta:'Junio',prob:'BAJA',tpv:400000},
-    {marca:'Pannus Panaderia',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:300000},
-    {marca:'Bourlot',vertical:'Home',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:250000},
-    {marca:'Panaderia Paracao',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
-    {marca:'Sigre Procrearte',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:200000},
-    {marca:'Jure Accesorios',vertical:'Autos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:200000},
-    {marca:'Caja de psicologos pba',vertical:'Salud',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
-    {marca:'La Mara entretenimiento',vertical:'Entretenimiento',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
-    {marca:'Farmacia Oro Verde',vertical:'Salud',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000},
-    {marca:'Vinoteca Campos',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:150000},
-    {marca:'Compañia Nativa',vertical:'Home',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:125000},
-    {marca:'Perfumeria Oliveras',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'ALTA',tpv:125000},
-    {marca:'Bodega Septima',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
-    {marca:'Supermayorista GEVA',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
-    {marca:'Supermercado El Picaflor',vertical:'Alimentos',producto:'QR+Point',eta:'Julio',prob:'BAJA',tpv:125000}
-    ]
-  },
-  'h-julieta': {
-    name:'Julieta Fassi Mayola', color:'#1A9641', seniority:'Ssr',
-    brands:[
-    {marca:'Parodi',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:1500000},
-    {marca:'Frigorifico mimen',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:1000000},
-    {marca:'Sodecar',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'MEDIA',tpv:800000},
-    {marca:'La elena',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
-    {marca:'Frigorifico Recreo',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
-    {marca:'Frigorifico La florida',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
-    {marca:'Super Crisitan',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
-    {marca:'soy lola',vertical:'Salud',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:600000},
-    {marca:'Pura raza',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:450000},
-    {marca:'La cubana',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
-    {marca:'El ladrillero',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
-    {marca:'Tomy librerias',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
-    {marca:'Vonderthusen',vertical:'Apparel',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:400000},
-    {marca:'Dulcilandia',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:350000},
-    {marca:'Red Giro',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:300000},
-    {marca:'Forrajes del oeste',vertical:'Otros',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:250000},
-    {marca:'Carnes del sur',vertical:'Alimentos',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:250000},
-    {marca:'Riccollini',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
-    {marca:'Supertim',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'ALTA',tpv:200000},
-    {marca:'Newells old boys',vertical:'Entretenimiento',producto:'QR+Point',eta:'TBD',prob:'MEDIA',tpv:200000},
-    {marca:'El fenomeno + Finisterra',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:200000},
-    {marca:'Construcciones del oeste',vertical:'Home',producto:'QR+Point',eta:'TBD',prob:'BAJA',tpv:200000},
-    {marca:'Empresa provincial Energia de Santa fe',vertical:'Utilities',producto:'QR',eta:'TBD',prob:'BAJA',tpv:0}
-    ]
-  },
-  'h-camila': {
-    name:'Camila Valansi', color:'#8E44AD', seniority:'Ssr',
-    brands:[
-    {marca:'Durabox',vertical:'Autos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:250000},
-    {marca:'Farmacia Villegas',vertical:'Salud',producto:'QR+Point',eta:'Junio',prob:'MEDIA',tpv:230000},
-    {marca:'Cafe Registrado',vertical:'Alimentos',producto:'QR+Point',eta:'Mayo',prob:'ALTA',tpv:200000},
-    {marca:'Cerámicos Pellegrini',vertical:'Home',producto:'Point+QR',eta:'Mayo',prob:'MEDIA',tpv:200000},
-    {marca:'Minotauro',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:190000},
-    {marca:'Concesión de Racing e Independiente',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:180000},
-    {marca:'Municipalidad de San Vicente',vertical:'Utilities',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:180000}
-    ]
-  },
-  'h-sottile': {
-    name:'Juan I. Sottile', color:'#C0392B', seniority:'Jr',
-    brands:[
-    {marca:'Tienda Swift',vertical:'Alimentos',producto:'Point+QR',eta:'Agosto',prob:'MEDIA',tpv:500000},
-    {marca:'Avicam',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:350000},
-    {marca:'Avicola Victoria',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:300000},
-    {marca:'Supermercado Arco Iris',vertical:'Alimentos',producto:'Point+QR',eta:'Agosto',prob:'BAJA',tpv:300000},
-    {marca:'BAV',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:250000},
-    {marca:'Gio Farma',vertical:'Salud',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:200000},
-    {marca:'LasChulas',vertical:'Apparel',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:200000},
-    {marca:'Amarilla Gas',vertical:'Utilities',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:200000},
-    {marca:'Bartolito Mayorista',vertical:'Alimentos',producto:'Point+QR',eta:'Mayo',prob:'ALTA',tpv:150000},
-    {marca:'Servi SRL',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:150000},
-    {marca:'Supermercado Don Gustavo',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:125000},
-    {marca:'Maxi Kiosco Juanse',vertical:'Alimentos',producto:'Point+QR',eta:'Junio',prob:'MEDIA',tpv:125000},
-    {marca:'Carnicerias El Exito',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
-    {marca:'CDIMEX SA',vertical:'Otros',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
-    {marca:'Supermercado OTA',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000},
-    {marca:'Baby Pop',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'BAJA',tpv:125000},
-    {marca:'Upy Shop',vertical:'Alimentos',producto:'Point+QR',eta:'Julio',prob:'MEDIA',tpv:125000}
-    ]
-  }
+// ─── BUILD HUNTER PAGE ────────────────────────────────────────────────────────
+const HUNTER_META = {
+  'h-agustin': {name:'Agustín Mac',       color:'#1A9641', key:'Agustín Mac',       seniority:'Sr'},
+  'h-ornella': {name:'Ornella Di Natale', color:'#2471A3', key:'Ornella Di Natale', seniority:'Ssr'},
+  'h-delfina': {name:'Delfina Sipes',     color:'#CA6F1E', key:'Delfina Sipes',     seniority:'Jr'},
+  'h-julieta': {name:'Julieta Fassi',     color:'#1A9641', key:'Julieta Fassi',     seniority:'Ssr'},
+  'h-camila':  {name:'Camila Valansi',    color:'#8E44AD', key:'Camila Valansi',    seniority:'Ssr'},
+  'h-sottile': {name:'Juan I. Sottile',   color:'#C0392B', key:'Juan I. Sottile',   seniority:'Jr'}
 };
 
-
-function buildHunterPage(key) {
-  const h = HUNTER_PAGES[key];
-  if (!h) return;
-  const sorted = [...h.brands].sort((a,b) => b.tpv - a.tpv);
-  const totalTPV  = sorted.reduce((a,b) => a + b.tpv, 0);
-  const altaCount = sorted.filter(b => b.prob === 'ALTA').length;
-  const fmtV = n => n >= 1e6 ? `$${(n/1e6).toFixed(1)} Mn` : n > 0 ? `$${(n/1e3).toFixed(0)} K` : '—';
-  const pcls = p => p==='ALTA'?'prob-alta':p==='MEDIA'?'prob-media':'prob-baja';
-
-  const html = `
-  <div class="hero" style="padding:24px 32px 20px;background:linear-gradient(135deg,${h.color}22 0%,#0D1B2A 60%);border-left:5px solid ${h.color}">
-    <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
-      <div style="width:52px;height:52px;border-radius:50%;background:${h.color};display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#fff;flex-shrink:0">${h.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}</div>
+function buildHunterPage(pageKey) {
+  const meta = HUNTER_META[pageKey];
+  if (!meta) return;
+  const brands = BRANDS
+    .filter(b => b.hunter === meta.key)
+    .sort((a,b) => b.total - a.total);
+  const totalTPV  = brands.reduce((a,b) => a + b.total, 0);
+  const totalMayAgo = brands.reduce((a,b) => a + b.mayo + b.jun + b.jul + b.ago, 0);
+  const altaCount = brands.filter(b => b.prob === 'ALTA').length;
+  const init = meta.name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase();
+  let html = `
+  <div class="hp-hero" style="background:linear-gradient(135deg,${meta.color}22 0%,var(--navy) 65%);">
+    <div class="hp-hero-inner">
+      <div class="hp-av" style="background:${meta.color}">${init}</div>
       <div>
-        <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:#fff">${h.name}</div>
-        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">${h.seniority} · Big Sellers Hunter</div>
+        <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:#fff">${meta.name}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,.5);margin-top:2px">${meta.seniority} · Big Sellers Hunter</div>
       </div>
-      <div style="margin-left:auto;display:flex;gap:12px;flex-wrap:wrap">
-        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:${h.color}">${sorted.length}</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">Cuentas</div>
+      <div class="hp-chips">
+        <div class="hp-chip">
+          <div class="hp-chip-v" style="color:${meta.color}">${brands.length}</div>
+          <div class="hp-chip-l">Cuentas</div>
         </div>
-        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:${h.color}">${fmtV(totalTPV)}</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">TPV Potencial</div>
+        <div class="hp-chip">
+          <div class="hp-chip-v" style="color:${meta.color}">${fmtM(totalTPV)}</div>
+          <div class="hp-chip-l">TPV Potencial</div>
         </div>
-        <div style="background:rgba(0,0,0,.25);border-radius:8px;padding:8px 16px;text-align:center">
-          <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:700;color:#1A9641">${altaCount}</div>
-          <div style="font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.08em">ALTA prob.</div>
+        <div class="hp-chip">
+          <div class="hp-chip-v" style="color:#1A9641">${altaCount}</div>
+          <div class="hp-chip-l">ALTA prob.</div>
+        </div>
+        <div class="hp-chip">
+          <div class="hp-chip-v" style="color:var(--teal2)">${fmtM(totalMayAgo)}</div>
+          <div class="hp-chip-l">May–Ago</div>
         </div>
       </div>
     </div>
   </div>
-
   <div class="hp-wrap">
-    <table class="hp-table">
-      <thead>
-        <tr>
-          <th style="width:28px">#</th>
-          <th>Marca</th>
-          <th>Industria</th>
-          <th style="text-align:center">Producto</th>
-          <th style="text-align:center">ETA</th>
-          <th style="text-align:center">Probabilidad</th>
-          <th style="text-align:right">TPV Potencial</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${sorted.map((b,i) => `
-        <tr>
-          <td style="color:var(--slate);font-size:11px;font-weight:600">${i+1}</td>
-          <td><strong>${b.marca}</strong></td>
-          <td style="font-size:11px;color:var(--slate)">${b.vertical}</td>
-          <td style="text-align:center">
-            <span style="background:#EEF4FF;color:#2980B9;padding:2px 8px;border-radius:4px;font-size:10px;font-weight:700">${b.producto}</span>
-          </td>
-          <td style="text-align:center" class="hp-eta">${b.eta}</td>
-          <td style="text-align:center">
-            <span class="prob-badge ${pcls(b.prob)}">${b.prob}</span>
-          </td>
-          <td class="tpv-val" style="color:${b.prob==='ALTA'?'var(--alta)':b.prob==='MEDIA'?'var(--media)':'var(--baja)'}">${fmtV(b.tpv)}</td>
-        </tr>`).join('')}
-      </tbody>
-    </table>
-  </div>`;
-
-  document.getElementById('page-' + key).innerHTML = html;
+    <table class="hp-tbl">
+      <thead><tr>
+        <th style="width:26px">#</th>
+        <th>Marca</th>
+        <th>Industria</th>
+        <th style="text-align:center">Producto</th>
+        <th style="text-align:center">ETA</th>
+        <th style="text-align:center">Probabilidad</th>
+        <th style="text-align:right">TPV Potencial</th>
+      </tr></thead>
+      <tbody>`;
+  brands.forEach((b,i) => {
+    const cc = probColor(b.prob);
+    html += `<tr>
+      <td style="color:var(--slate);font-size:11px;font-weight:600">${i+1}</td>
+      <td><strong>${b.marca}</strong></td>
+      <td style="font-size:11px;color:var(--slate)">${b.vertical}</td>
+      <td style="text-align:center"><span class="prod-chip">${b.producto}</span></td>
+      <td style="text-align:center" class="eta-lbl">${b.eta}</td>
+      <td style="text-align:center"><span class="${pbCls(b.prob)}">${b.prob}</span></td>
+      <td class="tpv-r" style="color:${cc}">${fmtM(b.total)}</td>
+    </tr>`;
+  });
+  html += '</tbody></table></div>';
+  document.getElementById('page-' + pageKey).innerHTML = html;
 }
 
-function show(key,tab){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.querySelectorAll('.nav-tab').forEach(t=>t.classList.remove('active'));
-  document.getElementById('page-'+key).classList.add('active');
-  if(tab) tab.classList.add('active');
-  if(!built[key]){
-    if(key==='resumen') buildResumen();
-    else if(key==='forecast') buildForecast();
-    else if(key==='hunters') buildHunters();
-    else if(key==='pipeline') buildPipeline();
-    else if(key.startsWith('h-')) buildHunterPage(key);
-    built[key]=true;
+// ─── ROUTING ─────────────────────────────────────────────────────────────────
+const built = {};
+function show(key, tab) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('page-' + key).classList.add('active');
+  if (tab) tab.classList.add('active');
+  if (!built[key]) {
+    if      (key === 'resumen')  buildResumen();
+    else if (key === 'forecast') buildForecast();
+    else if (key === 'hunters')  buildHunters();
+    else if (key === 'pipeline') buildPipeline();
+    else if (HUNTER_META[key])   buildHunterPage(key);
+    built[key] = true;
   }
 }
 
-document.addEventListener('DOMContentLoaded',()=>{
-  show('resumen', document.querySelector('[data-page="resumen"]'));
+document.addEventListener('DOMContentLoaded', () => {
+  show('resumen', document.querySelector('.nav-tab'));
 });
 </script>
 </body>
